@@ -1,4 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
+import { useState } from 'react';
 import { 
   BookOpen, 
   FileText, 
@@ -6,7 +7,9 @@ import {
   ClipboardList, 
   MessageCircle, 
   Settings,
-  Home
+  Home,
+  Menu,
+  X
 } from 'lucide-react';
 
 const navItems = [
@@ -20,6 +23,11 @@ const navItems = [
 
 export function Navigation() {
   const location = useLocation();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
 
   return (
     <nav className="glass-card sticky top-0 z-50 border-b border-white/20">
@@ -58,15 +66,66 @@ export function Navigation() {
           </div>
           
           <div className="flex items-center space-x-4">
-            <button className="btn-secondary text-sm">
+            <button className="btn-secondary text-sm hidden md:block">
               도움말
             </button>
             <div className="hidden md:flex items-center space-x-2 text-sm text-slate-600">
               <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
               <span className="font-medium">AI 준비 완료</span>
             </div>
+            
+            {/* Mobile menu button */}
+            <button
+              onClick={toggleMobileMenu}
+              className="lg:hidden p-2 rounded-lg hover:bg-slate-100 transition-colors duration-200"
+              aria-label="메뉴 열기"
+            >
+              {isMobileMenuOpen ? (
+                <X className="h-6 w-6 text-slate-700" />
+              ) : (
+                <Menu className="h-6 w-6 text-slate-700" />
+              )}
+            </button>
           </div>
         </div>
+
+        {/* Mobile menu */}
+        {isMobileMenuOpen && (
+          <div className="lg:hidden">
+            <div className="px-2 pt-2 pb-3 space-y-1 bg-white/90 backdrop-blur-sm rounded-lg mt-2 border border-white/20">
+              {navItems.map((item) => {
+                const Icon = item.icon;
+                const isActive = location.pathname === item.path;
+                
+                return (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`${
+                      isActive
+                        ? 'bg-indigo-100 text-indigo-700'
+                        : 'text-slate-700 hover:bg-slate-50 hover:text-slate-900'
+                    } group flex items-center px-3 py-2 text-base font-medium rounded-lg transition-colors duration-200`}
+                  >
+                    <Icon className="mr-3 h-5 w-5" />
+                    {item.label}
+                  </Link>
+                );
+              })}
+              
+              <div className="border-t border-slate-200 pt-3 mt-3">
+                <button className="w-full text-left px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 rounded-lg transition-colors duration-200">
+                  도움말
+                </button>
+                <div className="flex items-center px-3 py-2 text-sm text-slate-600">
+                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse mr-2"></div>
+                  <span className="font-medium">AI 준비 완료</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );

@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { Toaster } from '@/components/ui/toast';
 import { Navigation } from '@/components/layout/Navigation';
 import { Dashboard } from '@/pages/Dashboard';
@@ -11,8 +11,8 @@ import './App.css';
 
 function App() {
   return (
-    <Router basename="/hs_llm">
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+    <Router>
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 via-slate-100 to-blue-100">
         <Navigation />
         <main className="container mx-auto px-6 py-8 max-w-7xl">
           <div className="animate-fadeIn">

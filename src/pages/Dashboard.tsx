@@ -144,7 +144,7 @@ export function Dashboard() {
                   <div className="flex items-center space-x-3">
                     <div className={`w-3 h-3 rounded-full ${
                       activity.status === 'completed' ? 'bg-green-500' :
-                      activity.status === 'in-progress' ? 'bg-yellow-500' : 'bg-slate-400'
+                      activity.status === 'in-progress' ? 'bg-orange-500' : 'bg-slate-400'
                     }`} />
                     <div>
                       <p className="font-medium text-slate-900">{activity.title}</p>
@@ -179,12 +179,12 @@ export function Dashboard() {
                 </div>
                 <span className="text-sm font-medium text-blue-700 bg-blue-100 px-2 py-1 rounded-full">24%</span>
               </div>
-              <div className="flex items-center justify-between p-3 rounded-lg bg-yellow-50 border border-yellow-200">
+              <div className="flex items-center justify-between p-3 rounded-lg bg-slate-50 border border-slate-200">
                 <div className="flex items-center space-x-3">
-                  <AlertTriangle className="h-5 w-5 text-yellow-600" />
-                  <span className="font-medium text-yellow-900">저장 공간</span>
+                  <AlertTriangle className="h-5 w-5 text-slate-600" />
+                  <span className="font-medium text-slate-900">저장 공간</span>
                 </div>
-                <span className="text-sm font-medium text-yellow-700 bg-yellow-100 px-2 py-1 rounded-full">78%</span>
+                <span className="text-sm font-medium text-slate-700 bg-slate-100 px-2 py-1 rounded-full">78%</span>
               </div>
             </div>
             <div className="mt-6">

@@ -41,7 +41,7 @@ export function AssignmentGenerator() {
 
   const difficultyOptions = [
     { value: 'easy', label: '쉬움', color: 'text-green-600' },
-    { value: 'medium', label: '보통', color: 'text-yellow-600' },
+    { value: 'medium', label: '보통', color: 'text-orange-600' },
     { value: 'hard', label: '어려움', color: 'text-red-600' }
   ];
 
