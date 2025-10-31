@@ -50,6 +50,7 @@ export default {
         warning: "hsl(var(--warning))",
         // Interactive accent colors - Direct hex for immediate fix
         interactive: {
+          red: "var(--interactive-red)",
           blue: "var(--interactive-blue)",
           green: "var(--interactive-green)",
           purple: "var(--interactive-purple)",

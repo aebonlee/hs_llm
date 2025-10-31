@@ -74,7 +74,7 @@ body.dark {
     --interactive-orange: #fa5b0f; /* Orange from original */
     --interactive-green: #37b182; /* Green from original */
     --interactive-blue: #1854b4; /* Primary blue */
-    --interactive-pink: #f021b2; /* Pink from original */
+    --interactive-purple: #6b46c1; /* Purple instead of pink */
     
     /* Popover */
     --popover: 300 100% 98%; /* #fdf9ff Light purple */
@@ -466,7 +466,7 @@ body.dark {
 }
 
 .style-switcher .color-5 {
-  background: #f021b2;
+  background: #6b46c1;
 }
 
 /* Additional Portfolio Styles */
