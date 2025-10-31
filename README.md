@@ -1,5 +1,9 @@
 # 교수자를 위한 AI 강의 도우미 (Teaching Assistant AI)
 
+[![Deploy to GitHub Pages](https://github.com/aebonlee/hs_llm/actions/workflows/deploy.yml/badge.svg)](https://github.com/aebonlee/hs_llm/actions/workflows/deploy.yml)
+[![CI](https://github.com/aebonlee/hs_llm/actions/workflows/ci.yml/badge.svg)](https://github.com/aebonlee/hs_llm/actions/workflows/ci.yml)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-GitHub_Pages-blue)](https://aebonlee.github.io/hs_llm/)
+
 ## 프로젝트 개요
 교수자들이 강의계획서 작성, 과제 출제, 루브릭 설계를 효율적으로 할 수 있도록 돕는 ChatGPT 기반 웹 애플리케이션
 
