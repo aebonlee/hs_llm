@@ -69,12 +69,8 @@ body.dark {
     --destructive: 0 84% 60%; /* #ef4444 Red-500 - Errors */
     --destructive-foreground: 0 0% 100%; /* #ffffff White text on red */
     
-    /* Interactive Colors - Portfolio theme */
-    --interactive-red: #ec1839; /* Red from original */
-    --interactive-orange: #fa5b0f; /* Orange from original */
-    --interactive-green: #37b182; /* Green from original */
-    --interactive-blue: #1854b4; /* Primary blue */
-    --interactive-purple: #6b46c1; /* Purple instead of pink */
+    /* Single Color Theme - Clean Blue Only */
+    --interactive-blue: #1854b4; /* Primary blue - only color used */
     
     /* Popover */
     --popover: 300 100% 98%; /* #fdf9ff Light purple */
@@ -380,94 +376,7 @@ body.dark {
   @apply bg-muted-foreground;
 }
 
-/* Portfolio Style Switcher */
-.style-switcher {
-  position: fixed;
-  right: 0;
-  top: 75px;
-  padding: 15px;
-  width: 200px;
-  border: 1px solid rgb(var(--border));
-  background: rgb(var(--card));
-  z-index: 50;
-  border-radius: 5px;
-  transition: all 0.3s ease;
-  transform: translateX(100%);
-}
-
-.style-switcher.open {
-  transform: translateX(0);
-}
-
-.style-switcher .s-icon {
-  position: absolute;
-  height: 40px;
-  width: 40px;
-  text-align: center;
-  font-size: 20px;
-  background: rgb(var(--card));
-  color: rgb(var(--foreground));
-  right: 100%;
-  border: 1px solid rgb(var(--border));
-  margin-right: 25px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border-radius: 50%;
-}
-
-.style-switcher .s-icon i {
-  line-height: 40px;
-}
-
-.style-switcher .style-switcher-toggler {
-  top: 0;
-} 
-
-.style-switcher .day-night {
-  top: 55px;
-}
-
-.style-switcher h4 {
-  margin: 0 0 10px;
-  color: rgb(var(--muted-foreground));
-  font-size: 16px;
-  font-weight: 600;
-  text-transform: capitalize;
-}
-
-.style-switcher .colors {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.style-switcher .colors span {
-  display: inline-block;
-  height: 30px;
-  width: 30px;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.style-switcher .color-1 {
-  background: #ec1839;
-}
-
-.style-switcher .color-2 {
-  background: #fa5b0f;
-}
-
-.style-switcher .color-3 {
-  background: #37b182;
-}
-
-.style-switcher .color-4 {
-  background: #1854b4;
-}
-
-.style-switcher .color-5 {
-  background: #6b46c1;
-}
+/* Clean Single Color Theme - No Style Switcher Needed */
 
 /* Additional Portfolio Styles */
 .aside {
