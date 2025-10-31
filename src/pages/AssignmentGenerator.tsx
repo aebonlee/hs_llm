@@ -292,7 +292,7 @@ export function AssignmentGenerator() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="border rounded-lg p-4 cursor-pointer hover:bg-gray-50 transition-colors">
               <div className="flex items-center space-x-2 mb-2">
-                <FileText className="h-5 w-5 text-blue-600" />
+                <FileText className="h-5 w-5 text-gray-600" />
                 <span className="font-medium">프로그래밍 과제</span>
               </div>
               <p className="text-sm text-muted-foreground">

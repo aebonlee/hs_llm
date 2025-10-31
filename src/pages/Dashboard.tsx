@@ -160,19 +160,19 @@ export function Dashboard() {
           </div>
           <div className="card-content">
             <div className="space-y-4">
-              <div className="flex items-center justify-between p-3 rounded-lg bg-green-50 border border-green-200 transition-all duration-200 hover:scale-101">
+              <div className="flex items-center justify-between p-3 rounded-lg bg-gray-50 border border-gray-200 transition-all duration-200 hover:scale-101">
                 <div className="flex items-center space-x-3">
                   <CheckCircle className="h-5 w-5 text-success" />
-                  <span className="font-medium text-green-900">OpenAI API</span>
+                  <span className="font-medium text-gray-900">OpenAI API</span>
                 </div>
-                <span className="text-sm font-medium text-green-700 bg-green-100 px-2 py-1 rounded-full">정상</span>
+                <span className="text-sm font-medium text-gray-700 bg-gray-100 px-2 py-1 rounded-full">정상</span>
               </div>
-              <div className="flex items-center justify-between p-3 rounded-lg bg-blue-50 border border-blue-200 transition-all duration-200 hover:scale-101">
+              <div className="flex items-center justify-between p-3 rounded-lg bg-gray-50 border border-gray-200 transition-all duration-200 hover:scale-101">
                 <div className="flex items-center space-x-3">
                   <TrendingUp className="h-5 w-5 text-primary" />
-                  <span className="font-medium text-blue-900">토큰 사용량</span>
+                  <span className="font-medium text-gray-900">토큰 사용량</span>
                 </div>
-                <span className="text-sm font-medium text-blue-700 bg-blue-100 px-2 py-1 rounded-full">24%</span>
+                <span className="text-sm font-medium text-gray-700 bg-gray-100 px-2 py-1 rounded-full">24%</span>
               </div>
               <div className="flex items-center justify-between p-3 rounded-lg bg-muted border transition-all duration-200 hover:scale-101">
                 <div className="flex items-center space-x-3">

@@ -224,8 +224,8 @@ body.dark {
   
   .option-card.selected {
     border-color: rgb(var(--primary));
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
-    background: rgba(59, 130, 246, 0.05);
+    box-shadow: 0 0 0 3px rgba(128, 128, 128, 0.2);
+    background: rgba(128, 128, 128, 0.05);
   }
   
   /* Navigation with Smooth Transitions */
@@ -247,7 +247,7 @@ body.dark {
   .nav-item.active {
     background: rgb(var(--accent));
     color: rgb(var(--accent-foreground));
-    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.1);
+    box-shadow: 0 2px 4px rgba(128, 128, 128, 0.1);
   }
   
   /* Modern Button System */
@@ -260,7 +260,7 @@ body.dark {
   
   .btn-primary:hover {
     transform: scale(1.02);
-    box-shadow: 0 8px 12px rgba(59, 130, 246, 0.25);
+    box-shadow: 0 8px 12px rgba(128, 128, 128, 0.25);
   }
   
   .btn-primary:active {
@@ -279,7 +279,7 @@ body.dark {
   .btn-secondary:hover {
     background: rgb(var(--accent));
     transform: scale(1.02);
-    box-shadow: 0 4px 8px rgba(59, 130, 246, 0.15);
+    box-shadow: 0 4px 8px rgba(128, 128, 128, 0.15);
   }
   
   /* Form Inputs with Focus States */
@@ -292,7 +292,7 @@ body.dark {
   .form-input:focus {
     @apply outline-none ring-2;
     border-color: rgb(var(--ring));
-    ring-color: rgba(59, 130, 246, 0.2);
+    ring-color: rgba(128, 128, 128, 0.2);
   }
   
   /* Feature Cards with Enhanced Styling */

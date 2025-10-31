@@ -39,9 +39,9 @@ export function FeedbackGenerator() {
   };
 
   const toneOptions = [
-    { value: 'constructive', label: '건설적', icon: TrendingUp, color: 'text-green-600' },
-    { value: 'encouraging', label: '격려', icon: Star, color: 'text-blue-600' },
-    { value: 'detailed', label: '상세', icon: AlertCircle, color: 'text-orange-600' }
+    { value: 'constructive', label: '건설적', icon: TrendingUp, color: 'text-gray-600' },
+    { value: 'encouraging', label: '격려', icon: Star, color: 'text-gray-600' },
+    { value: 'detailed', label: '상세', icon: AlertCircle, color: 'text-gray-600' }
   ];
 
   const quickTemplates = [
@@ -65,7 +65,7 @@ export function FeedbackGenerator() {
   return (
     <div className="space-y-8 animate-fadeIn">
       <div className="flex items-center space-x-3">
-        <MessageCircle className="h-8 w-8 text-orange-600" />
+        <MessageCircle className="h-8 w-8 text-gray-600" />
         <div>
           <h1 className="text-3xl font-bold gradient-text">피드백 생성</h1>
           <p className="text-muted-foreground">개인화된 학습 피드백 작성</p>
@@ -313,7 +313,7 @@ export function FeedbackGenerator() {
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div>
-              <h4 className="font-medium text-green-600 mb-2">✅ 좋은 피드백</h4>
+              <h4 className="font-medium text-gray-600 mb-2">✅ 좋은 피드백</h4>
               <ul className="text-sm space-y-1 text-muted-foreground">
                 <li>• 구체적이고 명확한 예시 제공</li>
                 <li>• 학습자의 성장에 초점</li>
@@ -322,7 +322,7 @@ export function FeedbackGenerator() {
               </ul>
             </div>
             <div>
-              <h4 className="font-medium text-red-600 mb-2">❌ 피해야 할 피드백</h4>
+              <h4 className="font-medium text-gray-600 mb-2">❌ 피해야 할 피드백</h4>
               <ul className="text-sm space-y-1 text-muted-foreground">
                 <li>• 막연하고 일반적인 표현</li>
                 <li>• 개인 공격적인 언어</li>
@@ -331,7 +331,7 @@ export function FeedbackGenerator() {
               </ul>
             </div>
             <div>
-              <h4 className="font-medium text-blue-600 mb-2">💡 추가 팁</h4>
+              <h4 className="font-medium text-gray-600 mb-2">💡 추가 팁</h4>
               <ul className="text-sm space-y-1 text-muted-foreground">
                 <li>• 학습 목표와 연결</li>
                 <li>• 개별 학습자 수준 고려</li>
