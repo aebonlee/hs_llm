@@ -12,7 +12,7 @@ import './App.css';
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 via-slate-100 to-blue-100">
+      <div className="min-h-screen" style={{backgroundColor: '#f8fafc'}}>
         <Navigation />
         <main className="container mx-auto px-6 py-8 max-w-7xl">
           <div className="animate-fadeIn">

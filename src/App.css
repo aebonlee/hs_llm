@@ -1,53 +1,75 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 250 250 250;
-    --foreground: 15 23 42;
-    --card: 255 255 255;
-    --card-foreground: 15 23 42;
-    --popover: 255 255 255;
-    --popover-foreground: 15 23 42;
-    --primary: 99 102 241;
-    --primary-foreground: 248 250 252;
-    --secondary: 241 245 249;
-    --secondary-foreground: 15 23 42;
-    --muted: 248 250 252;
-    --muted-foreground: 100 116 139;
-    --accent: 241 245 249;
-    --accent-foreground: 15 23 42;
-    --destructive: 239 68 68;
-    --destructive-foreground: 248 250 252;
-    --border: 226 232 240;
-    --input: 226 232 240;
-    --ring: 99 102 241;
-    --radius: 0.75rem;
-    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    /* Clean Professional Color System - WCAG AA Compliant */
+    
+    /* Primary Colors - Blue theme for trust and professionalism */
+    --primary: 59 130 246; /* #3b82f6 Blue-500 - Primary actions */
+    --primary-foreground: 255 255 255; /* #ffffff White text on primary */
+    
+    /* Secondary Colors - Neutral grays for balance */
+    --secondary: 241 245 249; /* #f1f5f9 Slate-100 - Secondary backgrounds */
+    --secondary-foreground: 51 65 85; /* #334155 Slate-700 - Text on secondary */
+    
+    /* Background Colors */
+    --background: 255 255 255; /* #ffffff Pure white */
+    --foreground: 15 23 42; /* #0f172a Slate-900 - Main text */
+    
+    /* Surface Colors */
+    --card: 255 255 255; /* #ffffff White cards */
+    --card-foreground: 15 23 42; /* #0f172a Slate-900 */
+    
+    /* Border and Input */
+    --border: 226 232 240; /* #e2e8f0 Slate-200 - Subtle borders */
+    --input: 226 232 240; /* #e2e8f0 Slate-200 - Input borders */
+    --ring: 59 130 246; /* #3b82f6 Blue-500 - Focus rings */
+    
+    /* Muted Colors */
+    --muted: 248 250 252; /* #f8fafc Slate-50 - Muted backgrounds */
+    --muted-foreground: 100 116 139; /* #64748b Slate-500 - Muted text */
+    
+    /* Accent Colors */
+    --accent: 241 245 249; /* #f1f5f9 Slate-100 - Hover states */
+    --accent-foreground: 51 65 85; /* #334155 Slate-700 - Text on accent */
+    
+    /* Semantic Colors */
+    --destructive: 239 68 68; /* #ef4444 Red-500 - Errors */
+    --destructive-foreground: 255 255 255; /* #ffffff White text on red */
+    
+    /* Popover */
+    --popover: 255 255 255; /* #ffffff White */
+    --popover-foreground: 15 23 42; /* #0f172a Slate-900 */
+    
+    /* Radius */
+    --radius: 0.5rem; /* 8px - Clean, modern radius */
   }
 
   .dark {
-    --background: 2 6 23;
-    --foreground: 248 250 252;
-    --card: 15 23 42;
-    --card-foreground: 248 250 252;
-    --popover: 15 23 42;
-    --popover-foreground: 248 250 252;
-    --primary: 129 140 248;
-    --primary-foreground: 15 23 42;
-    --secondary: 30 41 59;
-    --secondary-foreground: 248 250 252;
-    --muted: 30 41 59;
-    --muted-foreground: 148 163 184;
-    --accent: 30 41 59;
-    --accent-foreground: 248 250 252;
-    --destructive: 248 113 113;
-    --destructive-foreground: 15 23 42;
-    --border: 30 41 59;
-    --input: 30 41 59;
-    --ring: 129 140 248;
+    /* Dark theme with proper contrast ratios */
+    --background: 15 23 42; /* #0f172a Slate-900 */
+    --foreground: 248 250 252; /* #f8fafc Slate-50 */
+    --card: 30 41 59; /* #1e293b Slate-800 */
+    --card-foreground: 248 250 252; /* #f8fafc Slate-50 */
+    --popover: 30 41 59; /* #1e293b Slate-800 */
+    --popover-foreground: 248 250 252; /* #f8fafc Slate-50 */
+    --primary: 96 165 250; /* #60a5fa Blue-400 - Better contrast in dark */
+    --primary-foreground: 15 23 42; /* #0f172a Slate-900 */
+    --secondary: 51 65 85; /* #334155 Slate-700 */
+    --secondary-foreground: 248 250 252; /* #f8fafc Slate-50 */
+    --muted: 51 65 85; /* #334155 Slate-700 */
+    --muted-foreground: 148 163 184; /* #94a3b8 Slate-400 */
+    --accent: 51 65 85; /* #334155 Slate-700 */
+    --accent-foreground: 248 250 252; /* #f8fafc Slate-50 */
+    --destructive: 248 113 113; /* #f87171 Red-400 */
+    --destructive-foreground: 15 23 42; /* #0f172a Slate-900 */
+    --border: 51 65 85; /* #334155 Slate-700 */
+    --input: 51 65 85; /* #334155 Slate-700 */
+    --ring: 96 165 250; /* #60a5fa Blue-400 */
   }
 }
 
@@ -65,77 +87,92 @@
   }
   
   body {
-    @apply bg-background text-foreground font-inter antialiased;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background-color: #f9fafb !important; /* Force gray background */
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Pretendard', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
   }
   
   #root {
     min-height: 100vh;
-    background-color: #f9fafb;
   }
   
   h1, h2, h3, h4, h5, h6 {
     @apply font-semibold tracking-tight;
+    font-family: 'Pretendard', 'Inter', system-ui, sans-serif;
+    line-height: 1.5;
   }
   
-  /* Override any yellow defaults */
-  .bg-yellow-50, .bg-yellow-100, .bg-yellow-200, .bg-yellow-300, .bg-yellow-400, .bg-yellow-500 {
-    background-color: #f1f5f9 !important; /* Force slate-100 */
+  /* Modern Sans Typography Scale */
+  h1 { font-size: 2.5rem; font-weight: 700; } /* 40px */
+  h2 { font-size: 2rem; font-weight: 600; } /* 32px */
+  h3 { font-size: 1.5rem; font-weight: 600; } /* 24px */
+  h4 { font-size: 1.25rem; font-weight: 500; } /* 20px */
+  h5 { font-size: 1.125rem; font-weight: 500; } /* 18px */
+  h6 { font-size: 1rem; font-weight: 500; } /* 16px */
+  
+  p, span, div {
+    font-family: 'Pretendard', 'Inter', system-ui, sans-serif;
+    line-height: 1.6;
   }
   
-  .text-yellow-500, .text-yellow-600, .text-yellow-700 {
-    color: #ea580c !important; /* Force orange-600 */
+  /* Clean Global Styles */
+  input, textarea, select {
+    @apply border-input bg-background text-foreground;
+  }
+  
+  input::placeholder, textarea::placeholder, select::placeholder {
+    @apply text-muted-foreground;
+  }
+  
+  input:focus, textarea:focus, select:focus {
+    @apply border-ring ring-2 ring-ring/20 outline-none;
+  }
+  
+  /* Selection styles */
+  *::selection {
+    @apply bg-primary/20 text-primary-foreground;
+  }
+  
+  *::-moz-selection {
+    @apply bg-primary/20 text-primary-foreground;
   }
 }
 
 @layer components {
-  .gradient-text {
-    @apply bg-gradient-to-r from-indigo-600 via-purple-600 to-blue-600 bg-clip-text text-transparent;
+  /* Clean Component System */
+  .card {
+    @apply bg-card text-card-foreground rounded-lg border shadow-sm;
   }
   
-  .gradient-bg {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  .card-header {
+    @apply flex flex-col space-y-1.5 p-6;
   }
   
-  .glass-card {
-    @apply bg-white/70 backdrop-blur-xl border border-white/20 shadow-xl;
+  .card-title {
+    @apply text-2xl font-semibold leading-none tracking-tight;
   }
   
-  .modern-card {
-    @apply bg-white rounded-2xl shadow-lg border border-slate-200/60 hover:shadow-xl transition-all duration-300 hover:-translate-y-1;
+  .card-description {
+    @apply text-sm text-muted-foreground;
   }
   
-  .feature-card {
-    @apply relative overflow-hidden bg-gradient-to-br from-white to-slate-50 rounded-2xl p-6 border border-slate-200/60 hover:border-indigo-200 transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+  .card-content {
+    @apply p-6 pt-0;
   }
   
-  .stat-card {
-    @apply bg-gradient-to-br from-white to-slate-50 rounded-xl p-6 border border-slate-200/60 hover:shadow-lg transition-all duration-300;
+  .card-footer {
+    @apply flex items-center p-6 pt-0;
   }
   
+  /* Navigation */
   .nav-item {
-    @apply relative px-4 py-2 rounded-lg font-medium transition-all duration-200 hover:bg-slate-100 text-slate-700 hover:text-slate-900;
+    @apply px-3 py-2 text-sm font-medium rounded-md transition-colors;
+    @apply text-muted-foreground hover:text-foreground hover:bg-accent;
   }
   
   .nav-item.active {
-    @apply bg-indigo-100 text-indigo-700 shadow-sm;
-  }
-  
-  .btn-primary {
-    @apply bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-medium px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-0.5;
-  }
-  
-  .btn-secondary {
-    @apply bg-white border border-slate-300 text-slate-700 hover:bg-slate-50 hover:border-slate-400 font-medium px-6 py-3 rounded-lg shadow-sm hover:shadow-md transition-all duration-200;
-  }
-  
-  .form-input {
-    @apply w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-200 bg-white;
-  }
-  
-  .form-textarea {
-    @apply w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-200 bg-white resize-none;
+    @apply bg-accent text-accent-foreground;
   }
 }
 
@@ -196,31 +233,13 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
-  border-radius: 3px;
+  @apply bg-muted;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 3px;
+  @apply bg-border rounded-sm;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
-}
-
-/* Loading states */
-.loading-shimmer {
-  background: linear-gradient(90deg, #f0f4f8 25%, #e2e8f0 50%, #f0f4f8 75%);
-  background-size: 200% 100%;
-  animation: shimmer 1.5s infinite;
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
+  @apply bg-muted-foreground;
 }
