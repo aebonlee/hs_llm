@@ -57,7 +57,7 @@ export function AssignmentGenerator() {
   return (
     <div className="space-y-8 animate-fadeIn">
       <div className="flex items-center space-x-3">
-        <FileText className="h-8 w-8 text-purple-600" />
+        <FileText className="h-8 w-8 text-blue-600" />
         <div>
           <h1 className="text-3xl font-bold gradient-text">과제 생성</h1>
           <p className="text-muted-foreground">학습 목표에 맞는 과제 설계</p>

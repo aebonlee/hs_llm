@@ -35,7 +35,7 @@ export function Navigation() {
         <div className="flex items-center justify-between h-20">
           <div className="flex items-center space-x-12">
             <Link to="/" className="flex items-center space-x-3 group">
-              <div className="p-2 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
+              <div className="p-2 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
                 <Users className="h-7 w-7 text-white" />
               </div>
               <div>
@@ -104,7 +104,7 @@ export function Navigation() {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={`${
                       isActive
-                        ? 'bg-indigo-100 text-indigo-700'
+                        ? 'bg-blue-100 text-blue-700'
                         : 'text-slate-700 hover:bg-slate-50 hover:text-slate-900'
                     } group flex items-center px-3 py-2 text-base font-medium rounded-lg transition-colors duration-200`}
                   >

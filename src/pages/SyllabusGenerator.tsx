@@ -42,7 +42,7 @@ export function SyllabusGenerator() {
   return (
     <div className="space-y-10 animate-fadeIn">
       <div className="text-center space-y-4">
-        <div className="inline-flex items-center space-x-4 p-4 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-2xl shadow-lg">
+        <div className="inline-flex items-center space-x-4 p-4 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl shadow-lg">
           <BookOpen className="h-10 w-10 text-white" />
           <div className="text-left">
             <h1 className="text-3xl font-bold text-white">강의계획서 생성</h1>

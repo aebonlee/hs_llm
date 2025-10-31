@@ -30,7 +30,7 @@ const quickActions = [
     description: '학습 목표에 맞는 과제 설계',
     icon: FileText,
     path: '/assignment',
-    color: 'text-purple-600'
+    color: 'text-blue-600'
   },
   {
     title: '피드백 생성',
@@ -75,7 +75,7 @@ export function Dashboard() {
           return (
             <div key={stat.label} className="stat-card animate-slideUp" style={{ animationDelay: `${index * 100}ms` }}>
               <div className="flex items-center justify-between mb-3">
-                <div className="p-2 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg">
+                <div className="p-2 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg">
                   <Icon className="h-5 w-5 text-white" />
                 </div>
                 <span className={`text-sm font-medium px-2 py-1 rounded-full ${
@@ -109,7 +109,7 @@ export function Dashboard() {
                       <div className={`p-3 rounded-xl shadow-lg group-hover:shadow-xl transition-all duration-300 ${
                         action.color === 'text-blue-600' ? 'bg-gradient-to-br from-interactive-blue to-primary-hover' :
                         action.color === 'text-green-600' ? 'bg-gradient-to-br from-interactive-green to-success' :
-                        action.color === 'text-purple-600' ? 'bg-gradient-to-br from-interactive-purple to-purple-600' :
+                        action.color === 'text-blue-600' ? 'bg-gradient-to-br from-interactive-blue to-blue-600' :
                         'bg-gradient-to-br from-interactive-orange to-warning'
                       }`}>
                         <Icon className="h-6 w-6 text-white" />
