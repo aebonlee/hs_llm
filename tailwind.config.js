@@ -48,12 +48,12 @@ export default {
         // Vibe Coding inspired semantic colors
         success: "hsl(var(--success))",
         warning: "hsl(var(--warning))",
-        // Interactive accent colors
+        // Interactive accent colors - Direct hex for immediate fix
         interactive: {
-          blue: "hsl(var(--interactive-blue))",
-          green: "hsl(var(--interactive-green))",
-          purple: "hsl(var(--interactive-purple))",
-          orange: "hsl(var(--interactive-orange))",
+          blue: "var(--interactive-blue)",
+          green: "var(--interactive-green)",
+          purple: "var(--interactive-purple)",
+          orange: "var(--interactive-orange)",
         },
       },
       borderRadius: {

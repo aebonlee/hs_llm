@@ -1,87 +1,110 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css');
+/* Noto Sans KR */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Poppins:wght@200;300;400;500;600&display=swap');
+/* Kosugi maru */
+@import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=Noto+Sans+KR:wght@400;700&family=Poppins:wght@200;300;400;500;600&display=swap');
+/* intel one mono */
+@font-face {font-family: 'intelone-mono-font-family-regular';src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/intelone-mono-font-family-regular.woff2') format('woff2');font-weight: 400;font-style: normal;}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+.f_intel {font-family: 'intelone-mono-font-family-regular', sans-serif;}
+
+:root {
+  --bg-black-900: #f2f2fc;
+  --bg-black-100: #fdf9ff;
+  --bg-black-50: #e8dfec;
+  --text-black-900: #302e4d;
+  --text-black-700: #504e70;
+  --skin-color: #ec1839;
+}
+
+body.dark {
+  --bg-black-900: #151515;
+  --bg-black-100: #222;
+  --bg-black-50: #393939;
+  --text-black-900: #fff;
+  --text-black-700: #e9e9e9;
+}
+
 @layer base {
   :root {
-    /* Vibe Coding Inspired Color System - Professional & Interactive */
+    /* Portfolio Website Color System */
     
-    /* Primary Colors - Blue theme for trust and professionalism */
-    --primary: 59 130 246; /* #3b82f6 Blue-500 - Primary actions */
-    --primary-hover: 37 99 235; /* #2563eb Blue-600 - Hover states */
-    --primary-foreground: 255 255 255; /* #ffffff White text on primary */
+    /* Primary Colors - Pink/Red theme based on original */
+    --primary: 345 84% 51%; /* #ec1839 Pink-Red from original */
+    --primary-hover: 345 90% 45%; /* Darker shade for hover */
+    --primary-foreground: 0 0% 100%; /* #ffffff White text on primary */
     
-    /* Secondary Colors - Neutral grays for balance */
-    --secondary: 241 245 249; /* #f1f5f9 Slate-100 - Secondary backgrounds */
-    --secondary-foreground: 51 65 85; /* #334155 Slate-700 - Text on secondary */
+    /* Secondary Colors - From original bg variables */
+    --secondary: 267 67% 96%; /* #f2f2fc Light purple-gray from bg-black-900 */
+    --secondary-foreground: 246 31% 25%; /* #302e4d Dark purple from text-black-900 */
     
-    /* Background Colors - Clean white base */
-    --bg-primary: 255 255 255; /* #ffffff Pure white */
-    --bg-secondary: 248 250 252; /* #f8fafc Slate-50 - Secondary surfaces */
-    --background: 255 255 255; /* #ffffff Pure white */
-    --foreground: 30 41 59; /* #1e293b Slate-800 - Main text */
+    /* Background Colors - From original variables */
+    --background: 300 100% 98%; /* #fdf9ff Very light purple from bg-black-100 */
+    --foreground: 246 31% 25%; /* #302e4d Dark purple from text-black-900 */
     
     /* Surface Colors */
-    --card: 255 255 255; /* #ffffff White cards */
-    --card-foreground: 30 41 59; /* #1e293b Slate-800 */
-    --card-hover: 241 245 249; /* #f1f5f9 Slate-100 - Card hover */
+    --card: 300 100% 98%; /* #fdf9ff Light purple cards */
+    --card-foreground: 246 31% 25%; /* #302e4d Dark purple text */
+    --card-hover: 267 67% 96%; /* #f2f2fc Hover state */
     
     /* Border and Input */
-    --border: 226 232 240; /* #e2e8f0 Slate-200 - Subtle borders */
-    --input: 226 232 240; /* #e2e8f0 Slate-200 - Input borders */
-    --ring: 59 130 246; /* #3b82f6 Blue-500 - Focus rings */
+    --border: 283 23% 90%; /* #e8dfec Light purple border from bg-black-50 */
+    --input: 283 23% 90%; /* #e8dfec Input borders */
+    --ring: 345 84% 51%; /* #ec1839 Focus rings same as primary */
     
     /* Muted Colors */
-    --muted: 248 250 252; /* #f8fafc Slate-50 - Muted backgrounds */
-    --muted-foreground: 100 116 139; /* #64748b Slate-500 - Muted text */
+    --muted: 267 67% 96%; /* #f2f2fc Muted backgrounds */
+    --muted-foreground: 245 20% 40%; /* #504e70 Muted text from text-black-700 */
     
     /* Accent Colors */
-    --accent: 241 245 249; /* #f1f5f9 Slate-100 - Hover states */
-    --accent-foreground: 51 65 85; /* #334155 Slate-700 - Text on accent */
+    --accent: 283 23% 90%; /* #e8dfec Accent states */
+    --accent-foreground: 246 31% 25%; /* #302e4d Text on accent */
     
-    /* Semantic Colors */
-    --success: 34 197 94; /* #22c55e Green-500 - Success states */
-    --warning: 245 158 11; /* #f59e0b Amber-500 - Warning states */
-    --destructive: 239 68 68; /* #ef4444 Red-500 - Errors */
-    --destructive-foreground: 255 255 255; /* #ffffff White text on red */
+    /* Semantic Colors - keeping some from original */
+    --success: 142 71% 45%; /* #22c55e Green-500 - Success states */
+    --warning: 38 92% 50%; /* #f59e0b Amber-500 - Warning states */
+    --destructive: 0 84% 60%; /* #ef4444 Red-500 - Errors */
+    --destructive-foreground: 0 0% 100%; /* #ffffff White text on red */
     
-    /* Interactive Colors */
-    --interactive-blue: 59 130 246; /* #3b82f6 Blue-500 */
-    --interactive-green: 34 197 94; /* #22c55e Green-500 */
-    --interactive-purple: 139 92 246; /* #8b5cf6 Purple-500 */
-    --interactive-orange: 249 115 22; /* #f97316 Orange-500 */
+    /* Interactive Colors - Portfolio theme */
+    --interactive-red: #ec1839; /* Primary red */
+    --interactive-orange: #fa5b0f; /* Orange from original */
+    --interactive-green: #37b182; /* Green from original */
+    --interactive-blue: #1854b4; /* Blue from original */
+    --interactive-pink: #f021b2; /* Pink from original */
     
     /* Popover */
-    --popover: 255 255 255; /* #ffffff White */
-    --popover-foreground: 30 41 59; /* #1e293b Slate-800 */
+    --popover: 300 100% 98%; /* #fdf9ff Light purple */
+    --popover-foreground: 246 31% 25%; /* #302e4d Dark purple */
     
     /* Radius */
-    --radius: 0.75rem; /* 12px - Rounded soft like Vibe Coding */
+    --radius: 0.5rem; /* 8px - Portfolio style radius */
   }
 
   .dark {
-    /* Dark theme with proper contrast ratios */
-    --background: 15 23 42; /* #0f172a Slate-900 */
-    --foreground: 248 250 252; /* #f8fafc Slate-50 */
-    --card: 30 41 59; /* #1e293b Slate-800 */
-    --card-foreground: 248 250 252; /* #f8fafc Slate-50 */
-    --popover: 30 41 59; /* #1e293b Slate-800 */
-    --popover-foreground: 248 250 252; /* #f8fafc Slate-50 */
-    --primary: 96 165 250; /* #60a5fa Blue-400 - Better contrast in dark */
-    --primary-foreground: 15 23 42; /* #0f172a Slate-900 */
-    --secondary: 51 65 85; /* #334155 Slate-700 */
-    --secondary-foreground: 248 250 252; /* #f8fafc Slate-50 */
-    --muted: 51 65 85; /* #334155 Slate-700 */
-    --muted-foreground: 148 163 184; /* #94a3b8 Slate-400 */
-    --accent: 51 65 85; /* #334155 Slate-700 */
-    --accent-foreground: 248 250 252; /* #f8fafc Slate-50 */
-    --destructive: 248 113 113; /* #f87171 Red-400 */
-    --destructive-foreground: 15 23 42; /* #0f172a Slate-900 */
-    --border: 51 65 85; /* #334155 Slate-700 */
-    --input: 51 65 85; /* #334155 Slate-700 */
-    --ring: 96 165 250; /* #60a5fa Blue-400 */
+    /* Dark theme based on original dark mode */
+    --background: 0 0% 8%; /* #151515 Dark background */
+    --foreground: 0 0% 100%; /* #fff White text */
+    --card: 0 0% 13%; /* #222 Dark cards */
+    --card-foreground: 0 0% 100%; /* #fff White text */
+    --popover: 0 0% 13%; /* #222 Dark popover */
+    --popover-foreground: 0 0% 100%; /* #fff White text */
+    --primary: 345 84% 51%; /* #ec1839 Keep primary red */
+    --primary-foreground: 0 0% 100%; /* #fff White text on primary */
+    --secondary: 0 0% 22%; /* #393939 Dark secondary */
+    --secondary-foreground: 0 0% 91%; /* #e9e9e9 Light text */
+    --muted: 0 0% 22%; /* #393939 Dark muted */
+    --muted-foreground: 0 0% 91%; /* #e9e9e9 Light muted text */
+    --accent: 0 0% 22%; /* #393939 Dark accent */
+    --accent-foreground: 0 0% 100%; /* #fff White text on accent */
+    --destructive: 0 84% 60%; /* #ef4444 Red-500 - Errors */
+    --destructive-foreground: 0 0% 100%; /* #fff White text on red */
+    --border: 0 0% 22%; /* #393939 Dark borders */
+    --input: 0 0% 22%; /* #393939 Dark input borders */
+    --ring: 345 84% 51%; /* #ec1839 Primary red for focus */
   }
 }
 
@@ -100,9 +123,9 @@
   
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Pretendard', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-family: 'Poppins', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
     font-weight: 400;
-    line-height: 1.6;
+    line-height: 1.5;
   }
   
   #root {
@@ -111,20 +134,20 @@
   
   h1, h2, h3, h4, h5, h6 {
     @apply font-semibold tracking-tight;
-    font-family: 'Pretendard', 'Inter', system-ui, sans-serif;
+    font-family: 'Poppins', 'Noto Sans KR', system-ui, sans-serif;
     line-height: 1.5;
   }
   
-  /* Modern Sans Typography Scale */
-  h1 { font-size: 2.5rem; font-weight: 700; } /* 40px */
-  h2 { font-size: 2rem; font-weight: 600; } /* 32px */
-  h3 { font-size: 1.5rem; font-weight: 600; } /* 24px */
-  h4 { font-size: 1.25rem; font-weight: 500; } /* 20px */
-  h5 { font-size: 1.125rem; font-weight: 500; } /* 18px */
-  h6 { font-size: 1rem; font-weight: 500; } /* 16px */
+  /* Portfolio Typography Scale */
+  h1 { font-size: 4rem; font-weight: 700; } /* 64px */
+  h2 { font-size: 2.4rem; font-weight: 600; } /* 38.4px */
+  h3 { font-size: 2.8rem; font-weight: 600; } /* 44.8px for hello */
+  h4 { font-size: 1.8rem; font-weight: 500; } /* 28.8px */
+  h5 { font-size: 1.6rem; font-weight: 500; } /* 25.6px */
+  h6 { font-size: 1.4rem; font-weight: 500; } /* 22.4px */
   
   p, span, div {
-    font-family: 'Pretendard', 'Inter', system-ui, sans-serif;
+    font-family: 'Poppins', 'Noto Sans KR', system-ui, sans-serif;
     line-height: 1.6;
   }
   
@@ -355,4 +378,177 @@
 
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-muted-foreground;
+}
+
+/* Portfolio Style Switcher */
+.style-switcher {
+  position: fixed;
+  right: 0;
+  top: 75px;
+  padding: 15px;
+  width: 200px;
+  border: 1px solid rgb(var(--border));
+  background: rgb(var(--card));
+  z-index: 50;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  transform: translateX(100%);
+}
+
+.style-switcher.open {
+  transform: translateX(0);
+}
+
+.style-switcher .s-icon {
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  font-size: 20px;
+  background: rgb(var(--card));
+  color: rgb(var(--foreground));
+  right: 100%;
+  border: 1px solid rgb(var(--border));
+  margin-right: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 50%;
+}
+
+.style-switcher .s-icon i {
+  line-height: 40px;
+}
+
+.style-switcher .style-switcher-toggler {
+  top: 0;
+} 
+
+.style-switcher .day-night {
+  top: 55px;
+}
+
+.style-switcher h4 {
+  margin: 0 0 10px;
+  color: rgb(var(--muted-foreground));
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.style-switcher .colors {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.style-switcher .colors span {
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.style-switcher .color-1 {
+  background: #ec1839;
+}
+
+.style-switcher .color-2 {
+  background: #fa5b0f;
+}
+
+.style-switcher .color-3 {
+  background: #37b182;
+}
+
+.style-switcher .color-4 {
+  background: #1854b4;
+}
+
+.style-switcher .color-5 {
+  background: #f021b2;
+}
+
+/* Additional Portfolio Styles */
+.aside {
+  width: 270px;
+  background: rgb(var(--card));
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 30px;
+  height: 100vh;
+  border-right: 1px solid rgb(var(--border));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.section {
+  background: rgb(var(--background));
+  min-height: 100vh;
+  display: block;
+  padding: 0 30px;
+  opacity: 1;
+  position: fixed;
+  left: 270px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.section.back-section {
+  z-index: 3;
+}
+
+.section.active {
+  z-index: 4;
+  opacity: 1;
+  animation: slideSection 1s ease;
+}
+
+@keyframes slideSection {
+  0% { transform: translateX(100%);}
+  100% { transform: translateX(0);}
+}
+
+.shadow-dark {
+  box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
+}
+
+.main-container {
+  padding-left: 270px;
+}
+
+.padd-15 {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.section-title h2:before {
+  content: '';
+  height: 4px;
+  width: 50px;
+  background-color: rgb(var(--primary));
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+
+.section-title h2:after {
+  content: '';
+  height: 4px;
+  width: 25px;
+  background-color: rgb(var(--primary));
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 8px;
 }
