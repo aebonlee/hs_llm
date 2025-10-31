@@ -604,10 +604,44 @@ button:hover, [role="button"]:hover {
   color: #374151 !important;
 }
 
-/* Override Tailwind CSS variables */
+/* Target specific problem areas */
+/* Remove borders and outlines from navigation */
+.nav-item, .nav-item:hover, .nav-item:active, .nav-item.active {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Navigation hover states - force gray */
+nav a:hover, nav button:hover, nav [role="button"]:hover, nav div:hover {
+  background-color: #f3f4f6 !important;
+  color: #374151 !important;
+  border: none !important;
+  outline: none !important;
+}
+
+/* Dashboard cards and interactive elements */
+.card:hover, .option-card:hover {
+  background-color: #f9fafb !important;
+  border-color: #e5e7eb !important;
+}
+
+/* Force all interactive elements to gray */
+.group:hover, .group:hover > *, 
+.group:hover .group-hover\\:text-primary-hover {
+  color: #6b7280 !important;
+}
+
+.group:hover .group-hover\\:text-foreground {
+  color: #374151 !important;
+}
+
+/* Override Tailwind CSS variables and custom properties */
 :root {
   --tw-ring-color: rgb(209 213 219) !important;
   --tw-ring-offset-color: #ffffff !important;
   --tw-bg-opacity: 1 !important;
   --tw-text-opacity: 1 !important;
+  --tw-text-primary: #6b7280 !important;
+  --tw-bg-primary: #f3f4f6 !important;
 }
