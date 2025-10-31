@@ -576,6 +576,34 @@ a, a:link, a:visited, a:hover, a:active, a:any-link {
   box-shadow: 0 0 0 3px rgba(209, 213, 219, 0.3) !important;
 }
 
+/* Kill ALL possible hover states with blue */
+.hover\\:bg-primary:hover,
+.hover\\:bg-blue-50:hover, .hover\\:bg-blue-100:hover, .hover\\:bg-blue-200:hover,
+.hover\\:bg-blue-300:hover, .hover\\:bg-blue-400:hover, .hover\\:bg-blue-500:hover,
+.hover\\:bg-blue-600:hover, .hover\\:bg-blue-700:hover, .hover\\:bg-blue-800:hover,
+.hover\\:bg-blue-900:hover {
+  background-color: #f3f4f6 !important;
+}
+
+.hover\\:text-primary:hover,
+.hover\\:text-blue-50:hover, .hover\\:text-blue-100:hover, .hover\\:text-blue-200:hover,
+.hover\\:text-blue-300:hover, .hover\\:text-blue-400:hover, .hover\\:text-blue-500:hover,
+.hover\\:text-blue-600:hover, .hover\\:text-blue-700:hover, .hover\\:text-blue-800:hover,
+.hover\\:text-blue-900:hover {
+  color: #6b7280 !important;
+}
+
+/* Kill primary color hovers */
+.hover\\:bg-primary\\\/90:hover {
+  background-color: #f3f4f6 !important;
+}
+
+/* Kill any remaining button hovers */
+button:hover, [role="button"]:hover {
+  background-color: #f3f4f6 !important;
+  color: #374151 !important;
+}
+
 /* Override Tailwind CSS variables */
 :root {
   --tw-ring-color: rgb(209 213 219) !important;
