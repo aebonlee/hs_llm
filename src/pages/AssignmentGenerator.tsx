@@ -40,9 +40,9 @@ export function AssignmentGenerator() {
   };
 
   const difficultyOptions = [
-    { value: 'easy', label: '쉬움', color: 'text-green-600' },
-    { value: 'medium', label: '보통', color: 'text-orange-600' },
-    { value: 'hard', label: '어려움', color: 'text-red-600' }
+    { value: 'easy', label: '쉬움', color: 'text-gray-500' },
+    { value: 'medium', label: '보통', color: 'text-gray-600' },
+    { value: 'hard', label: '어려움', color: 'text-gray-700' }
   ];
 
   const bloomLevels = [
@@ -57,7 +57,7 @@ export function AssignmentGenerator() {
   return (
     <div className="space-y-8 animate-fadeIn">
       <div className="flex items-center space-x-3">
-        <FileText className="h-8 w-8 text-blue-600" />
+        <FileText className="h-8 w-8 text-gray-600" />
         <div>
           <h1 className="text-3xl font-bold gradient-text">과제 생성</h1>
           <p className="text-muted-foreground">학습 목표에 맞는 과제 설계</p>
@@ -302,7 +302,7 @@ export function AssignmentGenerator() {
             
             <div className="border rounded-lg p-4 cursor-pointer hover:bg-gray-50 transition-colors">
               <div className="flex items-center space-x-2 mb-2">
-                <Users className="h-5 w-5 text-green-600" />
+                <Users className="h-5 w-5 text-gray-600" />
                 <span className="font-medium">팀 프로젝트</span>
               </div>
               <p className="text-sm text-muted-foreground">
@@ -312,7 +312,7 @@ export function AssignmentGenerator() {
             
             <div className="border rounded-lg p-4 cursor-pointer hover:bg-gray-50 transition-colors">
               <div className="flex items-center space-x-2 mb-2">
-                <Clock className="h-5 w-5 text-orange-600" />
+                <Clock className="h-5 w-5 text-gray-600" />
                 <span className="font-medium">연구 과제</span>
               </div>
               <p className="text-sm text-muted-foreground">

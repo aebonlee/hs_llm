@@ -45,12 +45,12 @@ export default {
           foreground: "hsl(var(--card-foreground))",
           hover: "hsl(var(--card-hover))",
         },
-        // Vibe Coding inspired semantic colors
+        // Monochrome semantic colors
         success: "hsl(var(--success))",
         warning: "hsl(var(--warning))",
-        // Single clean color theme
+        // Pure grayscale theme
         interactive: {
-          blue: "var(--interactive-blue)",
+          gray: "var(--interactive-gray)",
         },
       },
       borderRadius: {

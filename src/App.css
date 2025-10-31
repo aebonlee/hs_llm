@@ -12,95 +12,97 @@
 .f_intel {font-family: 'intelone-mono-font-family-regular', sans-serif;}
 
 :root {
-  --bg-black-900: #f2f2fc;
-  --bg-black-100: #fdf9ff;
-  --bg-black-50: #e8dfec;
-  --text-black-900: #302e4d;
-  --text-black-700: #504e70;
-  --skin-color: #1854b4;
+  --bg-black-900: #f8f9fa;
+  --bg-black-100: #ffffff;
+  --bg-black-50: #e9ecef;
+  --text-black-900: #212529;
+  --text-black-700: #6c757d;
+  --skin-color: #6c757d;
 }
 
 body.dark {
-  --bg-black-900: #151515;
-  --bg-black-100: #222;
-  --bg-black-50: #393939;
-  --text-black-900: #fff;
-  --text-black-700: #e9e9e9;
+  --bg-black-900: #121212;
+  --bg-black-100: #1e1e1e;
+  --bg-black-50: #2d2d2d;
+  --text-black-900: #ffffff;
+  --text-black-700: #b3b3b3;
 }
 
 @layer base {
   :root {
-    /* Portfolio Website Color System */
+    /* Monochrome Design System - Pure Grayscale Only */
     
-    /* Primary Colors - Blue theme based on original */
-    --primary: 224 65% 39%; /* #1854b4 Blue from original */
-    --primary-hover: 224 70% 35%; /* Darker shade for hover */
+    /* Primary Colors - Grayscale */
+    --primary: 0 0% 20%; /* #333333 Dark gray */
+    --primary-hover: 0 0% 15%; /* #262626 Darker gray for hover */
     --primary-foreground: 0 0% 100%; /* #ffffff White text on primary */
     
-    /* Secondary Colors - From original bg variables */
-    --secondary: 267 67% 96%; /* #f2f2fc Light purple-gray from bg-black-900 */
-    --secondary-foreground: 246 31% 25%; /* #302e4d Dark purple from text-black-900 */
+    /* Secondary Colors - Light grays */
+    --secondary: 0 0% 96%; /* #f5f5f5 Very light gray */
+    --secondary-foreground: 0 0% 20%; /* #333333 Dark gray text */
     
-    /* Background Colors - From original variables */
-    --background: 300 100% 98%; /* #fdf9ff Very light purple from bg-black-100 */
-    --foreground: 246 31% 25%; /* #302e4d Dark purple from text-black-900 */
+    /* Background Colors - Pure whites and grays */
+    --background: 0 0% 100%; /* #ffffff Pure white */
+    --foreground: 0 0% 13%; /* #212529 Near black text */
     
     /* Surface Colors */
-    --card: 300 100% 98%; /* #fdf9ff Light purple cards */
-    --card-foreground: 246 31% 25%; /* #302e4d Dark purple text */
-    --card-hover: 267 67% 96%; /* #f2f2fc Hover state */
+    --card: 0 0% 100%; /* #ffffff White cards */
+    --card-foreground: 0 0% 13%; /* #212529 Dark text */
+    --card-hover: 0 0% 98%; /* #fafafa Light hover */
     
     /* Border and Input */
-    --border: 283 23% 90%; /* #e8dfec Light purple border from bg-black-50 */
-    --input: 283 23% 90%; /* #e8dfec Input borders */
-    --ring: 224 65% 39%; /* #1854b4 Focus rings same as primary */
+    --border: 0 0% 91%; /* #e9ecef Light gray border */
+    --input: 0 0% 91%; /* #e9ecef Input borders */
+    --ring: 0 0% 20%; /* #333333 Focus rings */
     
     /* Muted Colors */
-    --muted: 267 67% 96%; /* #f2f2fc Muted backgrounds */
-    --muted-foreground: 245 20% 40%; /* #504e70 Muted text from text-black-700 */
+    --muted: 0 0% 96%; /* #f5f5f5 Muted backgrounds */
+    --muted-foreground: 0 0% 42%; /* #6c757d Medium gray text */
     
     /* Accent Colors */
-    --accent: 283 23% 90%; /* #e8dfec Accent states */
-    --accent-foreground: 246 31% 25%; /* #302e4d Text on accent */
+    --accent: 0 0% 91%; /* #e9ecef Accent states */
+    --accent-foreground: 0 0% 20%; /* #333333 Text on accent */
     
-    /* Semantic Colors - keeping some from original */
-    --success: 142 71% 45%; /* #22c55e Green-500 - Success states */
-    --warning: 38 92% 50%; /* #f59e0b Amber-500 - Warning states */
-    --destructive: 0 84% 60%; /* #ef4444 Red-500 - Errors */
-    --destructive-foreground: 0 0% 100%; /* #ffffff White text on red */
+    /* Semantic Colors - Monochrome versions */
+    --success: 0 0% 40%; /* #666666 Dark gray for success */
+    --warning: 0 0% 30%; /* #4d4d4d Darker gray for warning */
+    --destructive: 0 0% 25%; /* #404040 Very dark gray for errors */
+    --destructive-foreground: 0 0% 100%; /* #ffffff White text */
     
-    /* Single Color Theme - Clean Blue Only */
-    --interactive-blue: #1854b4; /* Primary blue - only color used */
+    /* No Color Theme - Pure Monochrome */
+    --interactive-gray: #6c757d; /* Medium gray - only accent used */
     
     /* Popover */
-    --popover: 300 100% 98%; /* #fdf9ff Light purple */
-    --popover-foreground: 246 31% 25%; /* #302e4d Dark purple */
+    --popover: 0 0% 100%; /* #ffffff White */
+    --popover-foreground: 0 0% 13%; /* #212529 Dark text */
     
     /* Radius */
-    --radius: 0.5rem; /* 8px - Portfolio style radius */
+    --radius: 0.5rem; /* 8px - Clean radius */
   }
 
   .dark {
-    /* Dark theme based on original dark mode */
-    --background: 0 0% 8%; /* #151515 Dark background */
-    --foreground: 0 0% 100%; /* #fff White text */
-    --card: 0 0% 13%; /* #222 Dark cards */
-    --card-foreground: 0 0% 100%; /* #fff White text */
-    --popover: 0 0% 13%; /* #222 Dark popover */
-    --popover-foreground: 0 0% 100%; /* #fff White text */
-    --primary: 224 65% 39%; /* #1854b4 Keep primary blue */
-    --primary-foreground: 0 0% 100%; /* #fff White text on primary */
-    --secondary: 0 0% 22%; /* #393939 Dark secondary */
-    --secondary-foreground: 0 0% 91%; /* #e9e9e9 Light text */
-    --muted: 0 0% 22%; /* #393939 Dark muted */
-    --muted-foreground: 0 0% 91%; /* #e9e9e9 Light muted text */
-    --accent: 0 0% 22%; /* #393939 Dark accent */
-    --accent-foreground: 0 0% 100%; /* #fff White text on accent */
-    --destructive: 0 84% 60%; /* #ef4444 Red-500 - Errors */
-    --destructive-foreground: 0 0% 100%; /* #fff White text on red */
-    --border: 0 0% 22%; /* #393939 Dark borders */
-    --input: 0 0% 22%; /* #393939 Dark input borders */
-    --ring: 224 65% 39%; /* #1854b4 Primary blue for focus */
+    /* Dark monochrome theme */
+    --background: 0 0% 7%; /* #121212 Very dark background */
+    --foreground: 0 0% 100%; /* #ffffff White text */
+    --card: 0 0% 12%; /* #1e1e1e Dark cards */
+    --card-foreground: 0 0% 100%; /* #ffffff White text */
+    --popover: 0 0% 12%; /* #1e1e1e Dark popover */
+    --popover-foreground: 0 0% 100%; /* #ffffff White text */
+    --primary: 0 0% 80%; /* #cccccc Light gray primary */
+    --primary-foreground: 0 0% 0%; /* #000000 Black text on primary */
+    --secondary: 0 0% 18%; /* #2d2d2d Dark secondary */
+    --secondary-foreground: 0 0% 90%; /* #e6e6e6 Light text */
+    --muted: 0 0% 18%; /* #2d2d2d Dark muted */
+    --muted-foreground: 0 0% 70%; /* #b3b3b3 Light muted text */
+    --accent: 0 0% 18%; /* #2d2d2d Dark accent */
+    --accent-foreground: 0 0% 100%; /* #ffffff White text on accent */
+    --success: 0 0% 60%; /* #999999 Light gray for success */
+    --warning: 0 0% 50%; /* #808080 Medium gray for warning */
+    --destructive: 0 0% 40%; /* #666666 Dark gray for errors */
+    --destructive-foreground: 0 0% 100%; /* #ffffff White text */
+    --border: 0 0% 18%; /* #2d2d2d Dark borders */
+    --input: 0 0% 18%; /* #2d2d2d Dark input borders */
+    --ring: 0 0% 80%; /* #cccccc Light gray focus */
   }
 }
 
