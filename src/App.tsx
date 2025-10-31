@@ -12,17 +12,19 @@ import './App.css';
 function App() {
   return (
     <Router basename="/hs_llm">
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
         <Navigation />
-        <main className="container mx-auto px-4 py-8">
-          <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/syllabus" element={<SyllabusGenerator />} />
-            <Route path="/rubric" element={<RubricBuilder />} />
-            <Route path="/assignment" element={<AssignmentGenerator />} />
-            <Route path="/feedback" element={<FeedbackGenerator />} />
-            <Route path="/settings" element={<Settings />} />
-          </Routes>
+        <main className="container mx-auto px-6 py-8 max-w-7xl">
+          <div className="animate-fadeIn">
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/syllabus" element={<SyllabusGenerator />} />
+              <Route path="/rubric" element={<RubricBuilder />} />
+              <Route path="/assignment" element={<AssignmentGenerator />} />
+              <Route path="/feedback" element={<FeedbackGenerator />} />
+              <Route path="/settings" element={<Settings />} />
+            </Routes>
+          </div>
         </main>
         <Toaster />
       </div>

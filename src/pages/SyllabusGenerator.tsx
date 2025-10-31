@@ -40,25 +40,25 @@ export function SyllabusGenerator() {
   };
 
   return (
-    <div className="space-y-8 animate-fadeIn">
-      <div className="flex items-center space-x-3">
-        <BookOpen className="h-8 w-8 text-blue-600" />
-        <div>
-          <h1 className="text-3xl font-bold gradient-text">강의계획서 생성</h1>
-          <p className="text-muted-foreground">AI를 활용한 체계적인 강의계획서 작성</p>
+    <div className="space-y-10 animate-fadeIn">
+      <div className="text-center space-y-4">
+        <div className="inline-flex items-center space-x-4 p-4 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-2xl shadow-lg">
+          <BookOpen className="h-10 w-10 text-white" />
+          <div className="text-left">
+            <h1 className="text-3xl font-bold text-white">강의계획서 생성</h1>
+            <p className="text-blue-100">AI를 활용한 체계적인 강의계획서 작성</p>
+          </div>
         </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Input Form */}
-        <Card>
-          <CardHeader>
-            <CardTitle>강의 정보 입력</CardTitle>
-            <CardDescription>
-              강의계획서 생성에 필요한 기본 정보를 입력하세요
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-4">
+        <div className="modern-card">
+          <div className="p-6 border-b border-slate-100">
+            <h2 className="text-xl font-semibold text-slate-900">강의 정보 입력</h2>
+            <p className="text-slate-600 mt-1">강의계획서 생성에 필요한 기본 정보를 입력하세요</p>
+          </div>
+          <div className="p-6 space-y-6">
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <label className="text-sm font-medium">강의명</label>
@@ -178,8 +178,8 @@ export function SyllabusGenerator() {
                 </>
               )}
             </Button>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
 
         {/* Generated Content */}
         <Card>
