@@ -9,6 +9,33 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Override any potential blue colors with pastel or grayscale */
+a, a:link, a:visited {
+  color: #666666 !important;
+  text-decoration: none !important;
+}
+
+a:hover, a:active {
+  color: #999999 !important;
+}
+
+/* Override button focus states */
+button:focus, input:focus, textarea:focus, select:focus {
+  outline: 2px solid #d1d5db !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 3px rgba(209, 213, 219, 0.3) !important;
+}
+
+/* Ensure no blue colors in any interactive elements */
+button, input[type="button"], input[type="submit"], input[type="reset"] {
+  border: 1px solid #d1d5db !important;
+}
+
+button:hover, input[type="button"]:hover, input[type="submit"]:hover, input[type="reset"]:hover {
+  background-color: #f3f4f6 !important;
+  border-color: #9ca3af !important;
+}
+
 .f_intel {font-family: 'intelone-mono-font-family-regular', sans-serif;}
 
 :root {
