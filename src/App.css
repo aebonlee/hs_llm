@@ -9,6 +9,42 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ULTIMATE BLUE COLOR KILLER - HIGHEST PRIORITY */
+@layer utilities {
+  /* Force override ALL possible blue colors with !important */
+  .bg-blue-50, .bg-blue-100, .bg-blue-200, .bg-blue-300, .bg-blue-400,
+  .bg-blue-500, .bg-blue-600, .bg-blue-700, .bg-blue-800, .bg-blue-900,
+  .text-blue-50, .text-blue-100, .text-blue-200, .text-blue-300, .text-blue-400,
+  .text-blue-500, .text-blue-600, .text-blue-700, .text-blue-800, .text-blue-900,
+  .border-blue-50, .border-blue-100, .border-blue-200, .border-blue-300, .border-blue-400,
+  .border-blue-500, .border-blue-600, .border-blue-700, .border-blue-800, .border-blue-900 {
+    background-color: #f1f5f9 !important;
+    color: #64748b !important;
+    border-color: #d1d5db !important;
+  }
+  
+  /* Force all hover states to be gray */
+  .hover\\:bg-blue-50:hover, .hover\\:bg-blue-100:hover, .hover\\:bg-blue-200:hover,
+  .hover\\:bg-blue-300:hover, .hover\\:bg-blue-400:hover, .hover\\:bg-blue-500:hover,
+  .hover\\:bg-blue-600:hover, .hover\\:bg-blue-700:hover, .hover\\:bg-blue-800:hover,
+  .hover\\:bg-blue-900:hover,
+  .hover\\:text-blue-50:hover, .hover\\:text-blue-100:hover, .hover\\:text-blue-200:hover,
+  .hover\\:text-blue-300:hover, .hover\\:text-blue-400:hover, .hover\\:text-blue-500:hover,
+  .hover\\:text-blue-600:hover, .hover\\:text-blue-700:hover, .hover\\:text-blue-800:hover,
+  .hover\\:text-blue-900:hover {
+    background-color: #f3f4f6 !important;
+    color: #6b7280 !important;
+  }
+  
+  /* Override any focus states */
+  .focus\\:ring-blue-50:focus, .focus\\:ring-blue-100:focus, .focus\\:ring-blue-200:focus,
+  .focus\\:ring-blue-300:focus, .focus\\:ring-blue-400:focus, .focus\\:ring-blue-500:focus,
+  .focus\\:ring-blue-600:focus, .focus\\:ring-blue-700:focus, .focus\\:ring-blue-800:focus,
+  .focus\\:ring-blue-900:focus {
+    --tw-ring-color: rgb(209 213 219) !important;
+  }
+}
+
 /* Override specific blue elements that might appear */
 /* Links - absolutely no blue */
 a, a:link, a:visited {
@@ -509,4 +545,26 @@ body.dark {
   top: 100%;
   left: 0;
   margin-top: 8px;
+}
+
+/* FINAL BLUE KILLER - TARGET SPECIFIC ELEMENTS */
+/* Force all links to be gray */
+a, a:link, a:visited, a:hover, a:active, a:any-link {
+  color: #6b7280 !important;
+  text-decoration: none !important;
+}
+
+/* Force all focus states to be gray */
+*:focus, *:focus-visible, *:focus-within {
+  outline: 2px solid #d1d5db !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 3px rgba(209, 213, 219, 0.3) !important;
+}
+
+/* Override Tailwind CSS variables */
+:root {
+  --tw-ring-color: rgb(209 213 219) !important;
+  --tw-ring-offset-color: #ffffff !important;
+  --tw-bg-opacity: 1 !important;
+  --tw-text-opacity: 1 !important;
 }
