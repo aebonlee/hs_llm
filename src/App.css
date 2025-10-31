@@ -9,7 +9,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Override any potential blue colors with pastel or grayscale */
+/* Override specific blue elements that might appear */
+/* Links - absolutely no blue */
 a, a:link, a:visited {
   color: #666666 !important;
   text-decoration: none !important;
@@ -19,21 +20,40 @@ a:hover, a:active {
   color: #999999 !important;
 }
 
-/* Override button focus states */
-button:focus, input:focus, textarea:focus, select:focus {
+/* Focus states - no blue outlines */
+*:focus, *:focus-visible {
   outline: 2px solid #d1d5db !important;
   outline-offset: 2px !important;
   box-shadow: 0 0 0 3px rgba(209, 213, 219, 0.3) !important;
 }
 
-/* Ensure no blue colors in any interactive elements */
-button, input[type="button"], input[type="submit"], input[type="reset"] {
-  border: 1px solid #d1d5db !important;
+/* Kill any Tailwind blue classes */
+.bg-blue-50, .bg-blue-100, .bg-blue-200, .bg-blue-300, .bg-blue-400, 
+.bg-blue-500, .bg-blue-600, .bg-blue-700, .bg-blue-800, .bg-blue-900 {
+  background-color: #f1f5f9 !important;
 }
 
-button:hover, input[type="button"]:hover, input[type="submit"]:hover, input[type="reset"]:hover {
-  background-color: #f3f4f6 !important;
-  border-color: #9ca3af !important;
+.text-blue-50, .text-blue-100, .text-blue-200, .text-blue-300, .text-blue-400,
+.text-blue-500, .text-blue-600, .text-blue-700, .text-blue-800, .text-blue-900 {
+  color: #64748b !important;
+}
+
+/* Override any border blue colors */
+.border-blue-50, .border-blue-100, .border-blue-200, .border-blue-300, .border-blue-400,
+.border-blue-500, .border-blue-600, .border-blue-700, .border-blue-800, .border-blue-900 {
+  border-color: #d1d5db !important;
+}
+
+/* Force specific component overrides */
+.btn-primary, .button-primary, .primary-button {
+  background-color: #374151 !important;
+  color: #ffffff !important;
+  border-color: #374151 !important;
+}
+
+.btn-primary:hover, .button-primary:hover, .primary-button:hover {
+  background-color: #4b5563 !important;
+  border-color: #4b5563 !important;
 }
 
 .f_intel {font-family: 'intelone-mono-font-family-regular', sans-serif;}
