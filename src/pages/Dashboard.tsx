@@ -94,8 +94,8 @@ export function Dashboard() {
       {/* Quick Actions */}
       <div className="space-y-6">
         <div className="text-center">
-          <h2 className="text-3xl font-bold text-slate-900 mb-2">빠른 작업</h2>
-          <p className="text-slate-600">원하는 도구를 선택하여 시작하세요</p>
+          <h2 className="text-3xl font-bold text-foreground mb-2">빠른 작업</h2>
+          <p className="text-muted-foreground">원하는 도구를 선택하여 시작하세요</p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -103,23 +103,23 @@ export function Dashboard() {
             const Icon = action.icon;
             return (
               <Link key={action.title} to={action.path} className="block animate-scaleIn" style={{ animationDelay: `${index * 150}ms` }}>
-                <div className="feature-card h-full">
+                <div className="option-card h-full p-6 group">
                   <div className="relative z-10">
                     <div className="flex items-center space-x-4 mb-4">
-                      <div className={`p-3 rounded-xl bg-gradient-to-br ${
-                        action.color === 'text-blue-600' ? 'from-blue-500 to-blue-600' :
-                        action.color === 'text-green-600' ? 'from-green-500 to-green-600' :
-                        action.color === 'text-purple-600' ? 'from-purple-500 to-purple-600' :
-                        'from-orange-500 to-orange-600'
-                      } shadow-lg group-hover:shadow-xl transition-shadow duration-300`}>
+                      <div className={`p-3 rounded-xl shadow-lg group-hover:shadow-xl transition-all duration-300 ${
+                        action.color === 'text-blue-600' ? 'bg-gradient-to-br from-interactive-blue to-primary-hover' :
+                        action.color === 'text-green-600' ? 'bg-gradient-to-br from-interactive-green to-success' :
+                        action.color === 'text-purple-600' ? 'bg-gradient-to-br from-interactive-purple to-purple-600' :
+                        'bg-gradient-to-br from-interactive-orange to-warning'
+                      }`}>
                         <Icon className="h-6 w-6 text-white" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-slate-900 text-lg">{action.title}</h3>
+                        <h3 className="font-semibold text-card-foreground text-lg group-hover:text-foreground transition-colors">{action.title}</h3>
                       </div>
                     </div>
-                    <p className="text-slate-600 leading-relaxed">{action.description}</p>
-                    <div className="mt-4 text-indigo-600 font-medium group-hover:text-indigo-700 transition-colors">
+                    <p className="text-muted-foreground leading-relaxed group-hover:text-card-foreground transition-colors">{action.description}</p>
+                    <div className="mt-4 text-primary font-medium group-hover:text-primary-hover transition-colors">
                       시작하기 →
                     </div>
                   </div>
@@ -132,59 +132,59 @@ export function Dashboard() {
 
       {/* Recent Activities & System Status */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div className="modern-card">
-          <div className="p-6 border-b border-slate-100">
-            <h3 className="text-xl font-semibold text-slate-900">최근 활동</h3>
-            <p className="text-slate-600 mt-1">최근에 작업한 문서들을 확인하세요</p>
+        <div className="card">
+          <div className="card-header border-b">
+            <h3 className="card-title text-xl">최근 활동</h3>
+            <p className="card-description">최근에 작업한 문서들을 확인하세요</p>
           </div>
-          <div className="p-6">
+          <div className="card-content">
             <div className="space-y-4">
               {recentActivities.map((activity, index) => (
-                <div key={index} className="flex items-center justify-between p-3 rounded-lg hover:bg-slate-50 transition-colors">
+                <div key={index} className="flex items-center justify-between p-3 rounded-lg hover:bg-muted transition-colors duration-200">
                   <div className="flex items-center space-x-3">
                     <div className={`w-3 h-3 rounded-full ${
-                      activity.status === 'completed' ? 'bg-green-500' :
-                      activity.status === 'in-progress' ? 'bg-orange-500' : 'bg-slate-400'
+                      activity.status === 'completed' ? 'bg-success' :
+                      activity.status === 'in-progress' ? 'bg-warning' : 'bg-muted-foreground'
                     }`} />
                     <div>
-                      <p className="font-medium text-slate-900">{activity.title}</p>
-                      <p className="text-sm text-slate-500">{activity.type}</p>
+                      <p className="font-medium text-card-foreground">{activity.title}</p>
+                      <p className="text-sm text-muted-foreground">{activity.type}</p>
                     </div>
                   </div>
-                  <span className="text-sm text-slate-500">{activity.time}</span>
+                  <span className="text-sm text-muted-foreground">{activity.time}</span>
                 </div>
               ))}
             </div>
           </div>
         </div>
 
-        <div className="modern-card">
-          <div className="p-6 border-b border-slate-100">
-            <h3 className="text-xl font-semibold text-slate-900">시스템 상태</h3>
-            <p className="text-slate-600 mt-1">AI 서비스 상태를 확인하세요</p>
+        <div className="card">
+          <div className="card-header border-b">
+            <h3 className="card-title text-xl">시스템 상태</h3>
+            <p className="card-description">AI 서비스 상태를 확인하세요</p>
           </div>
-          <div className="p-6">
+          <div className="card-content">
             <div className="space-y-4">
-              <div className="flex items-center justify-between p-3 rounded-lg bg-green-50 border border-green-200">
+              <div className="flex items-center justify-between p-3 rounded-lg bg-green-50 border border-green-200 transition-all duration-200 hover:scale-101">
                 <div className="flex items-center space-x-3">
-                  <CheckCircle className="h-5 w-5 text-green-600" />
+                  <CheckCircle className="h-5 w-5 text-success" />
                   <span className="font-medium text-green-900">OpenAI API</span>
                 </div>
                 <span className="text-sm font-medium text-green-700 bg-green-100 px-2 py-1 rounded-full">정상</span>
               </div>
-              <div className="flex items-center justify-between p-3 rounded-lg bg-blue-50 border border-blue-200">
+              <div className="flex items-center justify-between p-3 rounded-lg bg-blue-50 border border-blue-200 transition-all duration-200 hover:scale-101">
                 <div className="flex items-center space-x-3">
-                  <TrendingUp className="h-5 w-5 text-blue-600" />
+                  <TrendingUp className="h-5 w-5 text-primary" />
                   <span className="font-medium text-blue-900">토큰 사용량</span>
                 </div>
                 <span className="text-sm font-medium text-blue-700 bg-blue-100 px-2 py-1 rounded-full">24%</span>
               </div>
-              <div className="flex items-center justify-between p-3 rounded-lg bg-slate-50 border border-slate-200">
+              <div className="flex items-center justify-between p-3 rounded-lg bg-muted border transition-all duration-200 hover:scale-101">
                 <div className="flex items-center space-x-3">
-                  <AlertTriangle className="h-5 w-5 text-slate-600" />
-                  <span className="font-medium text-slate-900">저장 공간</span>
+                  <AlertTriangle className="h-5 w-5 text-muted-foreground" />
+                  <span className="font-medium text-card-foreground">저장 공간</span>
                 </div>
-                <span className="text-sm font-medium text-slate-700 bg-slate-100 px-2 py-1 rounded-full">78%</span>
+                <span className="text-sm font-medium text-muted-foreground bg-muted px-2 py-1 rounded-full">78%</span>
               </div>
             </div>
             <div className="mt-6">

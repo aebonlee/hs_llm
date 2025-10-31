@@ -17,6 +17,7 @@ export default {
         foreground: "hsl(var(--foreground))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
+          hover: "hsl(var(--primary-hover))",
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
@@ -42,6 +43,17 @@ export default {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+          hover: "hsl(var(--card-hover))",
+        },
+        // Vibe Coding inspired semantic colors
+        success: "hsl(var(--success))",
+        warning: "hsl(var(--warning))",
+        // Interactive accent colors
+        interactive: {
+          blue: "hsl(var(--interactive-blue))",
+          green: "hsl(var(--interactive-green))",
+          purple: "hsl(var(--interactive-purple))",
+          orange: "hsl(var(--interactive-orange))",
         },
       },
       borderRadius: {
