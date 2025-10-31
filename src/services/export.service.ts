@@ -4,7 +4,7 @@
  */
 
 import { jsPDF } from 'jspdf';
-import { Syllabus, RubricInfo, AssignmentInfo, Quiz } from '@/types/education';
+import { Syllabus, RubricInfo } from '@/types/education';
 import { ChatMessage } from '@/types/openai';
 
 export type ExportFormat = 'json' | 'markdown' | 'pdf' | 'csv' | 'html';
@@ -257,7 +257,7 @@ export class ExportService {
       
       const text = `${index + 1}. ${clo.description}`;
       const lines = doc.splitTextToSize(text, 170);
-      lines.forEach(line => {
+      lines.forEach((line: string) => {
         doc.text(line, 20, yPosition);
         yPosition += lineHeight;
       });
@@ -327,15 +327,15 @@ export class ExportService {
       doc.text(criterion.name, 20, yPosition);
       doc.text(`${criterion.weight}%`, 60, yPosition);
       
-      excellentLines.forEach((line, i) => {
+      excellentLines.forEach((line: string, i: number) => {
         doc.text(line, 80, yPosition + (i * 5));
       });
       
-      goodLines.forEach((line, i) => {
+      goodLines.forEach((line: string, i: number) => {
         doc.text(line, 130, yPosition + (i * 5));
       });
       
-      needsImprovementLines.forEach((line, i) => {
+      needsImprovementLines.forEach((line: string, i: number) => {
         doc.text(line, 180, yPosition + (i * 5));
       });
       
@@ -384,7 +384,7 @@ export class ExportService {
       // 내용
       doc.setFontSize(10);
       const lines = doc.splitTextToSize(message.content, 170);
-      lines.forEach(line => {
+      lines.forEach((line: string) => {
         if (yPosition > pageHeight - 20) {
           doc.addPage();
           yPosition = 20;
@@ -517,5 +517,46 @@ export class ExportService {
       document.execCommand('copy');
       document.body.removeChild(textArea);
     }
+  }
+
+  // Public static methods for frontend use
+  static downloadPDF(content: string, filename: string): void {
+    const doc = new jsPDF();
+    doc.setFont('helvetica');
+    doc.setFontSize(12);
+    
+    const lines = doc.splitTextToSize(content, 170);
+    let yPosition = 20;
+    
+    lines.forEach((line: string) => {
+      if (yPosition > 280) {
+        doc.addPage();
+        yPosition = 20;
+      }
+      doc.text(line, 20, yPosition);
+      yPosition += 7;
+    });
+    
+    doc.save(`${filename}.pdf`);
+  }
+
+  static downloadMarkdown(content: string, filename: string): void {
+    const blob = new Blob([content], { type: 'text/markdown' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `${filename}.md`;
+    link.click();
+    URL.revokeObjectURL(url);
+  }
+
+  static downloadJSON(data: any, filename: string): void {
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `${filename}.json`;
+    link.click();
+    URL.revokeObjectURL(url);
   }
 }

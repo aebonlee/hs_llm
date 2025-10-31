@@ -114,3 +114,35 @@ export interface Question {
   gradingCriteria?: string[];
   bloomLevel?: number;
 }
+
+// Additional types for frontend
+export interface Course {
+  id: string;
+  name: string;
+  code: string;
+  info: CourseInfo;
+  syllabus?: Syllabus;
+}
+
+export interface Rubric {
+  id: string;
+  title: string;
+  description: string;
+  info: RubricInfo;
+  createdAt: Date;
+}
+
+export interface Assignment {
+  id: string;
+  title: string;
+  info: AssignmentInfo;
+  rubric?: Rubric;
+  createdAt: Date;
+}
+
+export interface GeneratedContent {
+  type: string;
+  content: string;
+  params: any;
+  createdAt?: Date;
+}

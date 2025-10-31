@@ -214,7 +214,7 @@ export class ErrorHandler {
     };
     
     // 개발 환경에서만 콘솔 출력
-    if (process.env.NODE_ENV === 'development') {
+    if (true) {
       console.error('Error logged:', logEntry);
     }
     

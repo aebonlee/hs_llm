@@ -237,7 +237,7 @@ export class TokenManager {
     projectedTotal: number;
     withinBudget: boolean;
   } {
-    const stats = this.getStatistics();
+    this.getStatistics();
     const now = new Date();
     const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
     const endOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0);

@@ -83,12 +83,6 @@ export function RubricBuilder() {
   const weightError = Math.abs(totalWeight - 1) > 0.01;
 
   const handleExport = (format: string) => {
-    const rubricData = {
-      title: rubricTitle,
-      description: rubricDescription,
-      criteria: criteria,
-      totalWeight: totalWeight
-    };
     exportContent(format);
   };
 

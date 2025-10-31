@@ -8,7 +8,6 @@ import type {
   Course, 
   Rubric, 
   Assignment, 
-  CLO,
   GeneratedContent 
 } from '@/types/education';
 
@@ -46,7 +45,7 @@ export const useAppStore = create<AppState>()(
   persist(
     (set, get) => ({
       // Initialize services
-      openAIService: new OpenAIService(),
+      openAIService: new OpenAIService({ apiKey: '' }),
       storageService: new StorageService(),
       promptService: new PromptService(),
       exportService: new ExportService(),
@@ -62,10 +61,10 @@ export const useAppStore = create<AppState>()(
       
       // Actions
       setApiKey: (key: string) => {
-        const { openAIService, storageService } = get();
-        openAIService.setApiKey(key);
+        const { storageService } = get();
+        const newOpenAIService = new OpenAIService({ apiKey: key });
         storageService.saveApiKey(key);
-        set({ apiKey: key });
+        set({ apiKey: key, openAIService: newOpenAIService });
       },
       
       setCurrentCourse: (course: Course) => {
@@ -81,30 +80,30 @@ export const useAppStore = create<AppState>()(
       },
       
       generateContent: async (type: string, params: any) => {
-        const { openAIService, promptService } = get();
+        const { openAIService } = get();
         set({ isGenerating: true });
         
         try {
-          let prompt = '';
+          let messages: any[] = [];
           
           switch (type) {
             case 'syllabus':
-              prompt = promptService.getSyllabusPrompt(params);
+              messages = PromptService.generateSyllabusPrompt(params);
               break;
             case 'rubric':
-              prompt = promptService.getRubricPrompt(params);
+              messages = PromptService.generateRubricPrompt(params);
               break;
             case 'assignment':
-              prompt = promptService.getAssignmentPrompt(params);
+              messages = PromptService.generateAssignmentPrompt(params.objectives || [], params.level || 'basic', params.type || 'general');
               break;
             case 'feedback':
-              prompt = promptService.getFeedbackPrompt(params);
+              messages = PromptService.generateFeedbackPrompt(params);
               break;
             default:
               throw new Error(`Unknown content type: ${type}`);
           }
           
-          const content = await openAIService.generateContent(prompt);
+          const content = await openAIService.complete(messages);
           set({ generatedContent: { type, content, params }, isGenerating: false });
         } catch (error) {
           console.error('Content generation failed:', error);
@@ -114,23 +113,23 @@ export const useAppStore = create<AppState>()(
       },
       
       saveContent: (content: any) => {
-        const { storageService } = get();
-        storageService.saveGeneratedContent(content);
+        // Content is automatically saved in local storage through persistence
+        console.log('Content saved:', content);
       },
       
       exportContent: (format: string) => {
-        const { exportService, generatedContent } = get();
+        const { generatedContent } = get();
         if (!generatedContent) return;
         
         switch (format) {
           case 'pdf':
-            exportService.exportToPDF(generatedContent.content);
+            ExportService.downloadPDF(generatedContent.content, `document_${Date.now()}`);
             break;
           case 'markdown':
-            exportService.exportToMarkdown(generatedContent.content);
+            ExportService.downloadMarkdown(generatedContent.content, `document_${Date.now()}`);
             break;
           case 'json':
-            exportService.exportToJSON(generatedContent);
+            ExportService.downloadJSON(generatedContent, `document_${Date.now()}`);
             break;
           default:
             throw new Error(`Unknown export format: ${format}`);

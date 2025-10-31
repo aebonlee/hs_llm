@@ -4,7 +4,7 @@
  */
 
 import { ChatMessage } from '@/types/openai';
-import { CourseInfo, AssignmentInfo, RubricInfo, FeedbackInfo } from '@/types/education';
+import { CourseInfo, AssignmentInfo, FeedbackInfo } from '@/types/education';
 
 export class PromptService {
   /**

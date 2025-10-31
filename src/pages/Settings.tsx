@@ -4,10 +4,11 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useAppStore } from '@/store';
+import { ExportService } from '@/services/export.service';
 import { Settings as SettingsIcon, Key, Download, Trash2, Save, Eye, EyeOff } from 'lucide-react';
 
 export function Settings() {
-  const { apiKey, setApiKey, selectedModel, storageService, exportService } = useAppStore();
+  const { apiKey, setApiKey, selectedModel, storageService } = useAppStore();
   const [showApiKey, setShowApiKey] = useState(false);
   const [tempApiKey, setTempApiKey] = useState('');
   const [model, setModel] = useState(selectedModel);
@@ -29,12 +30,12 @@ export function Settings() {
 
   const handleExportData = () => {
     const data = storageService.exportAllData();
-    exportService.downloadFile(JSON.stringify(data, null, 2), 'teaching-assistant-data.json', 'application/json');
+    ExportService.downloadJSON(data, 'teaching-assistant-data');
   };
 
   const handleClearData = () => {
     if (confirm('모든 저장된 데이터를 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다.')) {
-      storageService.clearAllData();
+      storageService.clearAll();
       alert('모든 데이터가 삭제되었습니다.');
     }
   };
