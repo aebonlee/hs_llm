@@ -10,16 +10,29 @@
 @tailwind utilities;
 
 /* ULTIMATE BLUE COLOR KILLER - HIGHEST PRIORITY */
+/* Kill specific blue classes that are appearing */
+.bg-blue-600 {
+  background-color: #64748b !important;
+}
+
+.text-blue-600 {
+  color: #64748b !important;
+}
+
 @layer utilities {
   /* Force override ALL possible blue colors with !important */
   .bg-blue-50, .bg-blue-100, .bg-blue-200, .bg-blue-300, .bg-blue-400,
-  .bg-blue-500, .bg-blue-600, .bg-blue-700, .bg-blue-800, .bg-blue-900,
+  .bg-blue-500, .bg-blue-600, .bg-blue-700, .bg-blue-800, .bg-blue-900 {
+    background-color: #64748b !important;
+  }
+  
   .text-blue-50, .text-blue-100, .text-blue-200, .text-blue-300, .text-blue-400,
-  .text-blue-500, .text-blue-600, .text-blue-700, .text-blue-800, .text-blue-900,
+  .text-blue-500, .text-blue-600, .text-blue-700, .text-blue-800, .text-blue-900 {
+    color: #64748b !important;
+  }
+  
   .border-blue-50, .border-blue-100, .border-blue-200, .border-blue-300, .border-blue-400,
   .border-blue-500, .border-blue-600, .border-blue-700, .border-blue-800, .border-blue-900 {
-    background-color: #f1f5f9 !important;
-    color: #64748b !important;
     border-color: #d1d5db !important;
   }
   
@@ -27,12 +40,14 @@
   .hover\\:bg-blue-50:hover, .hover\\:bg-blue-100:hover, .hover\\:bg-blue-200:hover,
   .hover\\:bg-blue-300:hover, .hover\\:bg-blue-400:hover, .hover\\:bg-blue-500:hover,
   .hover\\:bg-blue-600:hover, .hover\\:bg-blue-700:hover, .hover\\:bg-blue-800:hover,
-  .hover\\:bg-blue-900:hover,
+  .hover\\:bg-blue-900:hover {
+    background-color: #f3f4f6 !important;
+  }
+  
   .hover\\:text-blue-50:hover, .hover\\:text-blue-100:hover, .hover\\:text-blue-200:hover,
   .hover\\:text-blue-300:hover, .hover\\:text-blue-400:hover, .hover\\:text-blue-500:hover,
   .hover\\:text-blue-600:hover, .hover\\:text-blue-700:hover, .hover\\:text-blue-800:hover,
   .hover\\:text-blue-900:hover {
-    background-color: #f3f4f6 !important;
     color: #6b7280 !important;
   }
   
