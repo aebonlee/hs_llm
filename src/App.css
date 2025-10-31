@@ -20,92 +20,25 @@
 }
 
 @layer utilities {
-  /* Force override ALL possible blue colors with !important */
-  .bg-blue-50, .bg-blue-100, .bg-blue-200, .bg-blue-300, .bg-blue-400,
-  .bg-blue-500, .bg-blue-600, .bg-blue-700, .bg-blue-800, .bg-blue-900 {
-    background-color: #64748b !important;
+  /* Override blue colors with grayscale - minimal !important use */
+  .bg-blue-600 {
+    background-color: hsl(var(--accent));
   }
   
-  .text-blue-50, .text-blue-100, .text-blue-200, .text-blue-300, .text-blue-400,
-  .text-blue-500, .text-blue-600, .text-blue-700, .text-blue-800, .text-blue-900 {
-    color: #64748b !important;
+  .text-blue-600 {
+    color: hsl(var(--muted-foreground));
   }
   
-  .border-blue-50, .border-blue-100, .border-blue-200, .border-blue-300, .border-blue-400,
-  .border-blue-500, .border-blue-600, .border-blue-700, .border-blue-800, .border-blue-900 {
-    border-color: #d1d5db !important;
+  /* Clean hover state overrides */
+  .hover\\:bg-blue-600:hover {
+    background-color: hsl(var(--accent));
   }
   
-  /* Force all hover states to be gray */
-  .hover\\:bg-blue-50:hover, .hover\\:bg-blue-100:hover, .hover\\:bg-blue-200:hover,
-  .hover\\:bg-blue-300:hover, .hover\\:bg-blue-400:hover, .hover\\:bg-blue-500:hover,
-  .hover\\:bg-blue-600:hover, .hover\\:bg-blue-700:hover, .hover\\:bg-blue-800:hover,
-  .hover\\:bg-blue-900:hover {
-    background-color: #f3f4f6 !important;
-  }
-  
-  .hover\\:text-blue-50:hover, .hover\\:text-blue-100:hover, .hover\\:text-blue-200:hover,
-  .hover\\:text-blue-300:hover, .hover\\:text-blue-400:hover, .hover\\:text-blue-500:hover,
-  .hover\\:text-blue-600:hover, .hover\\:text-blue-700:hover, .hover\\:text-blue-800:hover,
-  .hover\\:text-blue-900:hover {
-    color: #6b7280 !important;
-  }
-  
-  /* Override any focus states */
-  .focus\\:ring-blue-50:focus, .focus\\:ring-blue-100:focus, .focus\\:ring-blue-200:focus,
-  .focus\\:ring-blue-300:focus, .focus\\:ring-blue-400:focus, .focus\\:ring-blue-500:focus,
-  .focus\\:ring-blue-600:focus, .focus\\:ring-blue-700:focus, .focus\\:ring-blue-800:focus,
-  .focus\\:ring-blue-900:focus {
-    --tw-ring-color: rgb(209 213 219) !important;
+  .hover\\:text-blue-600:hover {
+    color: hsl(var(--foreground));
   }
 }
 
-/* Override specific blue elements that might appear */
-/* Links - absolutely no blue */
-a, a:link, a:visited {
-  color: #666666 !important;
-  text-decoration: none !important;
-}
-
-a:hover, a:active {
-  color: #999999 !important;
-}
-
-/* Focus states - no blue outlines */
-*:focus, *:focus-visible {
-  outline: 2px solid #d1d5db !important;
-  outline-offset: 2px !important;
-  box-shadow: 0 0 0 3px rgba(209, 213, 219, 0.3) !important;
-}
-
-/* Kill any Tailwind blue classes */
-.bg-blue-50, .bg-blue-100, .bg-blue-200, .bg-blue-300, .bg-blue-400, 
-.bg-blue-500, .bg-blue-600, .bg-blue-700, .bg-blue-800, .bg-blue-900 {
-  background-color: #f1f5f9 !important;
-}
-
-.text-blue-50, .text-blue-100, .text-blue-200, .text-blue-300, .text-blue-400,
-.text-blue-500, .text-blue-600, .text-blue-700, .text-blue-800, .text-blue-900 {
-  color: #64748b !important;
-}
-
-/* Override any border blue colors */
-.border-blue-50, .border-blue-100, .border-blue-200, .border-blue-300, .border-blue-400,
-.border-blue-500, .border-blue-600, .border-blue-700, .border-blue-800, .border-blue-900 {
-  border-color: #d1d5db !important;
-}
-
-/* Force specific component overrides */
-.btn-primary, .button-primary, .primary-button {
-  background-color: #374151 !important;
-  color: #ffffff !important;
-  border-color: #374151 !important;
-}
-
-.btn-primary:hover, .button-primary:hover, .primary-button:hover {
-  background-color: #4b5563 !important;
-  border-color: #4b5563 !important;
-}
 
 .f_intel {font-family: 'intelone-mono-font-family-regular', sans-serif;}
 
@@ -562,86 +495,81 @@ body.dark {
   margin-top: 8px;
 }
 
-/* FINAL BLUE KILLER - TARGET SPECIFIC ELEMENTS */
-/* Force all links to be gray */
-a, a:link, a:visited, a:hover, a:active, a:any-link {
-  color: #6b7280 !important;
-  text-decoration: none !important;
+/* Clean link and focus styles */
+a, a:link, a:visited {
+  color: hsl(var(--muted-foreground));
+  text-decoration: none;
 }
 
-/* Force all focus states to be gray */
-*:focus, *:focus-visible, *:focus-within {
-  outline: 2px solid #d1d5db !important;
-  outline-offset: 2px !important;
-  box-shadow: 0 0 0 3px rgba(209, 213, 219, 0.3) !important;
+a:hover, a:active {
+  color: hsl(var(--foreground));
+  text-decoration: none;
 }
 
-/* Kill ALL possible hover states with blue */
-.hover\\:bg-primary:hover,
-.hover\\:bg-blue-50:hover, .hover\\:bg-blue-100:hover, .hover\\:bg-blue-200:hover,
-.hover\\:bg-blue-300:hover, .hover\\:bg-blue-400:hover, .hover\\:bg-blue-500:hover,
-.hover\\:bg-blue-600:hover, .hover\\:bg-blue-700:hover, .hover\\:bg-blue-800:hover,
-.hover\\:bg-blue-900:hover {
-  background-color: #f3f4f6 !important;
+/* Clean focus states */
+*:focus, *:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px hsl(var(--ring) / 0.3);
 }
 
-.hover\\:text-primary:hover,
-.hover\\:text-blue-50:hover, .hover\\:text-blue-100:hover, .hover\\:text-blue-200:hover,
-.hover\\:text-blue-300:hover, .hover\\:text-blue-400:hover, .hover\\:text-blue-500:hover,
-.hover\\:text-blue-600:hover, .hover\\:text-blue-700:hover, .hover\\:text-blue-800:hover,
-.hover\\:text-blue-900:hover {
-  color: #6b7280 !important;
-}
 
-/* Kill primary color hovers */
-.hover\\:bg-primary\\\/90:hover {
-  background-color: #f3f4f6 !important;
-}
-
-/* Kill any remaining button hovers */
+/* Clean button hover states */
 button:hover, [role="button"]:hover {
-  background-color: #f3f4f6 !important;
-  color: #374151 !important;
+  background-color: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
 }
 
-/* Target specific problem areas */
-/* Remove borders and outlines from navigation */
-.nav-item, .nav-item:hover, .nav-item:active, .nav-item.active {
-  border: none !important;
-  outline: none !important;
-  box-shadow: none !important;
+/* Clean navigation styles without !important abuse */
+nav .nav-item {
+  border: none;
+  outline: none;
+  box-shadow: none;
+  background-color: transparent;
+  color: hsl(var(--muted-foreground));
 }
 
-/* Navigation hover states - force gray */
-nav a:hover, nav button:hover, nav [role="button"]:hover, nav div:hover {
-  background-color: #f3f4f6 !important;
-  color: #374151 !important;
-  border: none !important;
-  outline: none !important;
+nav .nav-item:hover {
+  background-color: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+  border: none;
+  outline: none;
+  box-shadow: none;
 }
 
-/* Dashboard cards and interactive elements */
-.card:hover, .option-card:hover {
-  background-color: #f9fafb !important;
-  border-color: #e5e7eb !important;
+nav .nav-item.active {
+  background-color: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+  border: none;
+  outline: none;
+  box-shadow: none;
 }
 
-/* Force all interactive elements to gray */
-.group:hover, .group:hover > *, 
-.group:hover .group-hover\\:text-primary-hover {
-  color: #6b7280 !important;
+nav .btn-secondary {
+  background-color: hsl(var(--card));
+  color: hsl(var(--primary));
+  border: 1px solid hsl(var(--border));
 }
 
-.group:hover .group-hover\\:text-foreground {
-  color: #374151 !important;
+nav .btn-secondary:hover {
+  background-color: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+  border: 1px solid hsl(var(--border));
 }
 
-/* Override Tailwind CSS variables and custom properties */
+/* Dashboard cards - clean hover states */
+.card:hover {
+  background-color: hsl(var(--card-hover));
+  border-color: hsl(var(--border));
+}
+
+.option-card:hover {
+  background-color: hsl(var(--card-hover));
+  border-color: hsl(var(--border));
+}
+
+/* Clean Tailwind CSS variable overrides */
 :root {
-  --tw-ring-color: rgb(209 213 219) !important;
-  --tw-ring-offset-color: #ffffff !important;
-  --tw-bg-opacity: 1 !important;
-  --tw-text-opacity: 1 !important;
-  --tw-text-primary: #6b7280 !important;
-  --tw-bg-primary: #f3f4f6 !important;
+  --tw-ring-color: hsl(var(--ring));
+  --tw-ring-offset-color: hsl(var(--background));
 }
