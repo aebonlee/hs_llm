@@ -300,15 +300,17 @@ body.dark {
   
   .btn-secondary {
     @apply font-semibold py-3 px-6 border transition-all duration-200;
-    background: rgb(var(--card));
-    color: rgb(var(--primary));
-    border-color: rgb(var(--primary));
+    background: hsl(var(--card));
+    color: hsl(var(--muted-foreground));
+    border-color: hsl(var(--border));
     border-radius: var(--radius);
     transform: scale(1);
   }
   
   .btn-secondary:hover {
-    background: rgb(var(--accent));
+    background: hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
+    border-color: hsl(var(--border));
     transform: scale(1.02);
     box-shadow: 0 4px 8px rgba(128, 128, 128, 0.15);
   }
@@ -547,7 +549,7 @@ nav .nav-item.active {
 
 nav .btn-secondary {
   background-color: hsl(var(--card));
-  color: hsl(var(--primary));
+  color: hsl(var(--muted-foreground));
   border: 1px solid hsl(var(--border));
 }
 

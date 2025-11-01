@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { PageTitle } from '@/components/ui/PageTitle';
 import { useAppStore } from '@/store';
 import { FileText, Download, Save, Sparkles, Clock, Users } from 'lucide-react';
 
@@ -56,13 +57,11 @@ export function AssignmentGenerator() {
 
   return (
     <div className="space-y-8 animate-fadeIn">
-      <div className="flex items-center space-x-3">
-        <FileText className="h-8 w-8 text-gray-600" />
-        <div>
-          <h1 className="text-3xl font-bold gradient-text">과제 생성</h1>
-          <p className="text-muted-foreground">학습 목표에 맞는 과제 설계</p>
-        </div>
-      </div>
+      <PageTitle 
+        icon={FileText}
+        title="과제 생성"
+        description="학습 목표에 맞는 과제 설계"
+      />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Input Form */}

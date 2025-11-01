@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { PageTitle } from '@/components/ui/PageTitle';
 import { useAppStore } from '@/store';
 import { BookOpen, Download, Save, Sparkles } from 'lucide-react';
 
@@ -41,15 +42,11 @@ export function SyllabusGenerator() {
 
   return (
     <div className="space-y-10 animate-fadeIn">
-      <div className="text-center space-y-4">
-        <div className="inline-flex items-center space-x-4 p-4 bg-gradient-to-r from-gray-700 to-gray-800 rounded-2xl shadow-lg">
-          <BookOpen className="h-10 w-10 text-white" />
-          <div className="text-left">
-            <h1 className="text-3xl font-bold text-white">강의계획서 생성</h1>
-            <p className="text-gray-100">AI를 활용한 체계적인 강의계획서 작성</p>
-          </div>
-        </div>
-      </div>
+      <PageTitle 
+        icon={BookOpen}
+        title="강의계획서 생성"
+        description="AI를 활용한 체계적인 강의계획서 작성"
+      />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Input Form */}

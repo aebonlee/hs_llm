@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { PageTitle } from '@/components/ui/PageTitle';
 import { useAppStore } from '@/store';
 import { ClipboardList, Plus, Trash2, Save, Download, Sparkles } from 'lucide-react';
 
@@ -88,13 +89,11 @@ export function RubricBuilder() {
 
   return (
     <div className="space-y-8 animate-fadeIn">
-      <div className="flex items-center space-x-3">
-        <ClipboardList className="h-8 w-8 text-green-600" />
-        <div>
-          <h1 className="text-3xl font-bold gradient-text">루브릭 빌더</h1>
-          <p className="text-muted-foreground">평가 기준표 생성 및 관리</p>
-        </div>
-      </div>
+      <PageTitle 
+        icon={ClipboardList}
+        title="루브릭 빌더"
+        description="평가 기준표 생성 및 관리"
+      />
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Rubric Info */}

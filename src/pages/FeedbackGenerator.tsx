@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { PageTitle } from '@/components/ui/PageTitle';
 import { useAppStore } from '@/store';
 import { MessageCircle, Download, Save, Sparkles, Star, TrendingUp, AlertCircle } from 'lucide-react';
 
@@ -64,13 +65,11 @@ export function FeedbackGenerator() {
 
   return (
     <div className="space-y-8 animate-fadeIn">
-      <div className="flex items-center space-x-3">
-        <MessageCircle className="h-8 w-8 text-gray-600" />
-        <div>
-          <h1 className="text-3xl font-bold gradient-text">피드백 생성</h1>
-          <p className="text-muted-foreground">개인화된 학습 피드백 작성</p>
-        </div>
-      </div>
+      <PageTitle 
+        icon={MessageCircle}
+        title="피드백 생성"
+        description="개인화된 학습 피드백 작성"
+      />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Input Form */}
