@@ -41,19 +41,9 @@ const quickActions = [
   }
 ];
 
-const recentActivities = [
-  { title: '객체지향프로그래밍 루브릭', type: '루브릭', time: '2시간 전', status: 'completed' },
-  { title: '데이터베이스 중간과제', type: '과제', time: '5시간 전', status: 'in-progress' },
-  { title: '알고리즘 강의계획서', type: '강의계획서', time: '1일 전', status: 'completed' },
-  { title: '웹개발 피드백', type: '피드백', time: '2일 전', status: 'pending' }
-];
+const recentActivities = [];
 
-const stats = [
-  { label: '생성된 문서', value: '24', icon: FileText, change: '+12%' },
-  { label: '사용 시간', value: '8.2h', icon: Clock, change: '-5%' },
-  { label: '완료율', value: '94%', icon: CheckCircle, change: '+3%' },
-  { label: '활성 프로젝트', value: '7', icon: TrendingUp, change: '+2' }
-];
+const stats = [];
 
 export function Dashboard() {
   return (
@@ -68,28 +58,6 @@ export function Dashboard() {
         </p>
       </div>
 
-      {/* Quick Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {stats.map((stat, index) => {
-          const Icon = stat.icon;
-          return (
-            <div key={stat.label} className="stat-card animate-slideUp" style={{ animationDelay: `${index * 100}ms` }}>
-              <div className="flex items-center justify-between mb-3">
-                <div className="p-2 bg-gradient-to-br from-gray-700 to-gray-800 rounded-lg">
-                  <Icon className="h-5 w-5 text-white" />
-                </div>
-                <span className={`text-sm font-medium px-2 py-1 rounded-full ${
-                  stat.change.startsWith('+') ? 'bg-gray-100 text-gray-700' : 'bg-gray-200 text-gray-800'
-                }`}>
-                  {stat.change}
-                </span>
-              </div>
-              <div className="text-3xl font-bold text-slate-900 mb-1">{stat.value}</div>
-              <div className="text-sm text-slate-600">{stat.label}</div>
-            </div>
-          );
-        })}
-      </div>
 
       {/* Quick Actions */}
       <div className="space-y-6">
@@ -128,33 +96,19 @@ export function Dashboard() {
       {/* Recent Activities & System Status */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div className="card">
-          <div className="card-header border-b">
+          <div className="card-header mb-4">
             <h3 className="card-title text-xl">최근 활동</h3>
             <p className="card-description">최근에 작업한 문서들을 확인하세요</p>
           </div>
           <div className="card-content">
-            <div className="space-y-4">
-              {recentActivities.map((activity, index) => (
-                <div key={index} className="flex items-center justify-between p-3 rounded-lg hover:bg-muted transition-colors duration-200">
-                  <div className="flex items-center space-x-3">
-                    <div className={`w-3 h-3 rounded-full ${
-                      activity.status === 'completed' ? 'bg-gray-600' :
-                      activity.status === 'in-progress' ? 'bg-gray-500' : 'bg-gray-400'
-                    }`} />
-                    <div>
-                      <p className="font-medium text-card-foreground">{activity.title}</p>
-                      <p className="text-sm text-muted-foreground">{activity.type}</p>
-                    </div>
-                  </div>
-                  <span className="text-sm text-muted-foreground">{activity.time}</span>
-                </div>
-              ))}
+            <div className="flex items-center justify-center h-32 text-muted-foreground">
+              <p>아직 생성된 문서가 없습니다. 위의 도구들을 사용하여 시작해보세요!</p>
             </div>
           </div>
         </div>
 
         <div className="card">
-          <div className="card-header border-b">
+          <div className="card-header mb-4">
             <h3 className="card-title text-xl">시스템 상태</h3>
             <p className="card-description">AI 서비스 상태를 확인하세요</p>
           </div>
@@ -163,23 +117,9 @@ export function Dashboard() {
               <div className="flex items-center justify-between p-3 rounded-lg bg-gray-50 border border-gray-200 transition-all duration-200 hover:scale-101">
                 <div className="flex items-center space-x-3">
                   <CheckCircle className="h-5 w-5 text-success" />
-                  <span className="font-medium text-gray-900">OpenAI API</span>
+                  <span className="font-medium text-gray-900">준비 완료</span>
                 </div>
                 <span className="text-sm font-medium text-gray-700 bg-gray-100 px-2 py-1 rounded-full">정상</span>
-              </div>
-              <div className="flex items-center justify-between p-3 rounded-lg bg-gray-50 border border-gray-200 transition-all duration-200 hover:scale-101">
-                <div className="flex items-center space-x-3">
-                  <TrendingUp className="h-5 w-5 text-primary" />
-                  <span className="font-medium text-gray-900">토큰 사용량</span>
-                </div>
-                <span className="text-sm font-medium text-gray-700 bg-gray-100 px-2 py-1 rounded-full">24%</span>
-              </div>
-              <div className="flex items-center justify-between p-3 rounded-lg bg-muted border transition-all duration-200 hover:scale-101">
-                <div className="flex items-center space-x-3">
-                  <AlertTriangle className="h-5 w-5 text-muted-foreground" />
-                  <span className="font-medium text-card-foreground">저장 공간</span>
-                </div>
-                <span className="text-sm font-medium text-muted-foreground bg-muted px-2 py-1 rounded-full">78%</span>
               </div>
             </div>
             <div className="mt-6">
