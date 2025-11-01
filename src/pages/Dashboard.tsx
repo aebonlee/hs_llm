@@ -3,11 +3,8 @@ import {
   BookOpen, 
   FileText, 
   ClipboardList, 
-  MessageCircle, 
-  TrendingUp,
-  Clock,
-  CheckCircle,
-  AlertTriangle
+  MessageCircle,
+  CheckCircle
 } from 'lucide-react';
 
 const quickActions = [
@@ -41,9 +38,6 @@ const quickActions = [
   }
 ];
 
-const recentActivities = [];
-
-const stats = [];
 
 export function Dashboard() {
   return (
