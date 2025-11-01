@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { PageTitle } from '@/components/ui/PageTitle';
 import { useAppStore } from '@/store';
 import { ExportService } from '@/services/export.service';
 import { Settings as SettingsIcon, Key, Download, Trash2, Save, Eye, EyeOff } from 'lucide-react';
@@ -48,13 +49,11 @@ export function Settings() {
 
   return (
     <div className="space-y-8 animate-fadeIn">
-      <div className="flex items-center space-x-3">
-        <SettingsIcon className="h-8 w-8 text-gray-600" />
-        <div>
-          <h1 className="text-3xl font-bold gradient-text">설정</h1>
-          <p className="text-muted-foreground">애플리케이션 설정 및 환경 구성</p>
-        </div>
-      </div>
+      <PageTitle 
+        icon={SettingsIcon}
+        title="설정"
+        description="애플리케이션 설정 및 환경 구성"
+      />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* API Settings */}
