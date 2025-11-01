@@ -43,7 +43,7 @@ export function Navigation() {
                   Teaching AI
                 </span>
                 <div className="text-xs text-slate-500 font-medium">
-                  교육 지원 플랫폼
+                  한신대학교 교수혁신연구결과
                 </div>
               </div>
             </Link>

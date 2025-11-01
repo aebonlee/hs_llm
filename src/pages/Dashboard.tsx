@@ -52,8 +52,11 @@ export function Dashboard() {
       {/* Hero Section */}
       <div className="text-center space-y-4 py-12">
         <h1 className="text-5xl font-bold gradient-text tracking-tight">
-          교육 지원 AI 플랫폼
+          Teaching AI
         </h1>
+        <p className="text-lg text-slate-600 max-w-3xl mx-auto text-balance">
+          한신대학교 교수혁신연구결과
+        </p>
         <p className="text-xl text-slate-600 max-w-2xl mx-auto text-balance">
           AI의 힘으로 더 나은 교육 경험을 만들어보세요
         </p>
