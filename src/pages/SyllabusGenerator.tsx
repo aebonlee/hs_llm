@@ -29,9 +29,13 @@ export function SyllabusGenerator() {
   };
 
   const handleGenerate = async () => {
-    console.log('버튼 클릭됨!', formData);
-    console.log('isGenerating:', isGenerating);
-    console.log('courseName:', formData.courseName);
+    console.log('[SyllabusGenerator] handleGenerate called!');
+    console.log('[SyllabusGenerator] formData:', formData);
+    console.log('[SyllabusGenerator] isGenerating:', isGenerating);
+    console.log('[SyllabusGenerator] courseName:', formData.courseName);
+    
+    // 테스트용 alert
+    alert('생성 버튼이 클릭되었습니다!');
     
     try {
       const { apiKey } = useAppStore.getState();

@@ -87,32 +87,17 @@ export const ActionButton = React.forwardRef<HTMLButtonElement, ActionButtonProp
     const variantColors = getVariantColor();
     const isDisabled = disabled || loading;
 
-    // 버튼 클릭 핸들러
-    const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-      console.log('[ActionButton] Clicked:', { 
-        variant, 
-        disabled: isDisabled,
-        loading,
-        hasOnClick: !!onClick
-      });
-      
-      if (isDisabled) {
-        e.preventDefault();
-        return;
-      }
-      
-      if (onClick) {
-        console.log('[ActionButton] Executing onClick');
-        onClick(e);
-      }
-    };
-
     return (
       <button
         ref={ref}
         type={type}
         disabled={isDisabled}
-        onClick={handleClick}
+        onClick={(e) => {
+          console.log('[ActionButton] Button clicked!');
+          if (!isDisabled && onClick) {
+            onClick(e);
+          }
+        }}
         className={cn(
           // 기본 스타일
           "inline-flex items-center justify-center",
