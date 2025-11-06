@@ -9,7 +9,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-100%25-blue)](https://www.typescriptlang.org/)
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/aebonlee/hs_llm/main/public/logo.png" alt="Teaching AI Logo" width="200"/>
+  <img src="./han2.png" alt="Teaching AI Logo" width="200"/>
   
   **🎓 한신대학교 교수혁신연구 | 🚀 2025년 11월 출시 | 🌟 오픈소스 프로젝트**
 </div>
@@ -386,15 +386,6 @@ copies of the Software...
 
 ---
 
-## 🏆 수상 및 인증
-
-- 🥇 **2025 EdTech Innovation Award** - Grand Prize
-- 🏅 **한국교육공학회 우수 연구상** - 2025년 11월
-- 📜 **정보통신산업진흥원 인증** - AI 교육 도구
-- ⭐ **GitHub Trending** - Education Category #1
-
----
-
 ## 📈 통계 & 사용 현황
 
 <div align="center">
@@ -404,9 +395,9 @@ copies of the Software...
 </div>
 
 ### 사용 통계 (2025년 11월 기준)
-- **활성 사용자**: 1,200+ 교수/강사
-- **생성된 문서**: 15,000+ 건
-- **시간 절약**: 총 50,000+ 시간
+- **활성 사용자**: 3+ 교수/강사
+- **생성된 문서**: 12+ 건
+- **시간 절약**: 총 5+ 시간
 - **만족도**: 4.8/5.0 ⭐⭐⭐⭐⭐
 
 ---
