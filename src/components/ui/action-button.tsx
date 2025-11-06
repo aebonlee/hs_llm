@@ -89,15 +89,10 @@ export const ActionButton = React.forwardRef<HTMLButtonElement, ActionButtonProp
 
     return (
       <button
+        {...props}
         ref={ref}
         type={type}
         disabled={isDisabled}
-        onClick={(e) => {
-          console.log('[ActionButton] Button clicked!');
-          if (!isDisabled && onClick) {
-            onClick(e);
-          }
-        }}
         className={cn(
           // 기본 스타일
           "inline-flex items-center justify-center",
@@ -119,6 +114,13 @@ export const ActionButton = React.forwardRef<HTMLButtonElement, ActionButtonProp
           color: variantColors.text,
           borderColor: variantColors.border
         }}
+        onClick={(e) => {
+          console.log('[ActionButton] Button clicked!', { isDisabled, hasOnClick: !!onClick });
+          if (!isDisabled && onClick) {
+            console.log('[ActionButton] Calling onClick handler');
+            onClick(e);
+          }
+        }}
         onMouseEnter={(e) => {
           if (!isDisabled) {
             e.currentTarget.style.backgroundColor = variantColors.hoverBg;
@@ -129,7 +131,6 @@ export const ActionButton = React.forwardRef<HTMLButtonElement, ActionButtonProp
             e.currentTarget.style.backgroundColor = variantColors.bg;
           }
         }}
-        {...props}
       >
         {loading ? (
           <>

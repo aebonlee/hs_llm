@@ -29,21 +29,27 @@ export function SyllabusGenerator() {
   };
 
   const handleGenerate = async () => {
-    console.log('[SyllabusGenerator] handleGenerate called!');
-    console.log('[SyllabusGenerator] formData:', formData);
-    console.log('[SyllabusGenerator] isGenerating:', isGenerating);
-    console.log('[SyllabusGenerator] courseName:', formData.courseName);
+    console.log('=== [SyllabusGenerator] Generate Button Clicked ===');
+    console.log('Course Name:', formData.courseName);
+    console.log('Is Generating:', isGenerating);
     
-    // 테스트용 alert
-    alert('생성 버튼이 클릭되었습니다!');
+    if (!formData.courseName) {
+      alert('강의명을 입력해주세요.');
+      return;
+    }
     
     try {
       const { apiKey } = useAppStore.getState();
+      console.log('API Key exists:', !!apiKey);
+      
       if (!apiKey || apiKey.trim() === '') {
         alert('API 키가 설정되지 않았습니다. 설정 페이지에서 OpenAI API 키를 입력해주세요.');
         return;
       }
+      
+      console.log('Calling generateContent...');
       await generateContent('syllabus', formData);
+      console.log('Generate complete!');
     } catch (error) {
       console.error('강의계획서 생성 실패:', error);
       alert('강의계획서 생성 중 오류가 발생했습니다. API 키를 확인하거나 다시 시도해주세요.');
