@@ -192,7 +192,8 @@ body.dark {
   }
   
   input:focus, textarea:focus, select:focus {
-    @apply border-ring ring-2 ring-ring/20 outline-none;
+    @apply outline-none;
+    border-color: inherit;
   }
   
   /* Selection styles */
@@ -325,9 +326,8 @@ body.dark {
   }
   
   .form-input:focus {
-    @apply outline-none ring-2;
-    border-color: rgb(var(--ring));
-    ring-color: rgba(128, 128, 128, 0.2);
+    @apply outline-none;
+    border-color: inherit;
   }
   
   /* Feature Cards with Enhanced Styling */

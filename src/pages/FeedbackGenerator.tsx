@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { ActionButton } from '@/components/ui/action-button';
+import { SimpleGenerateButton } from '@/components/ui/simple-generate-button';
 import { UnifiedButton as Button } from '@/components/ui/unified-button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -211,17 +212,15 @@ export function FeedbackGenerator() {
                 </label>
               </div>
 
-              <ActionButton 
+              <SimpleGenerateButton 
                 onClick={handleGenerate} 
                 disabled={!formData.studentName || !formData.assignmentTitle}
                 loading={isGenerating}
                 className="w-full"
-                variant="generate"
-                size="md"
               >
                 <Sparkles className="h-4 w-4 mr-2" />
                 <span>피드백 생성</span>
-              </ActionButton>
+              </SimpleGenerateButton>
             </CardContent>
           </Card>
         </div>

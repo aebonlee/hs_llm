@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { ActionButton } from '@/components/ui/action-button';
+import { SimpleGenerateButton } from '@/components/ui/simple-generate-button';
 import { UnifiedButton as Button } from '@/components/ui/unified-button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -141,17 +142,15 @@ export function RubricBuilder() {
                 placeholder="AI에게 어떤 루브릭을 만들어 달라고 요청하세요"
                 rows={3}
               />
-              <ActionButton 
+              <SimpleGenerateButton 
                 onClick={handleGenerateWithAI}
                 disabled={!aiPrompt}
                 loading={isGenerating}
                 className="w-full mt-2"
-                size="sm"
-                variant="generate"
               >
                 <Sparkles className="h-4 w-4 mr-2" />
                 <span>AI로 생성</span>
-              </ActionButton>
+              </SimpleGenerateButton>
             </div>
 
             <div className="border-t pt-4">
