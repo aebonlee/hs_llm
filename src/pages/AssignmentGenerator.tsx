@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { ActionButton } from '@/components/ui/action-button';
 import { UnifiedButton as Button } from '@/components/ui/unified-button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -214,21 +215,17 @@ export function AssignmentGenerator() {
                 />
               </div>
 
-              <Button 
+              <ActionButton 
                 onClick={handleGenerate} 
-                disabled={isGenerating || !formData.title}
+                disabled={!formData.title}
+                loading={isGenerating}
                 className="w-full"
-                variant="primary"
+                variant="generate"
+                size="md"
               >
-                {isGenerating ? (
-                  <span>생성 중...</span>
-                ) : (
-                  <>
-                    <Sparkles className="h-4 w-4 mr-2" />
-                    <span>과제 생성</span>
-                  </>
-                )}
-              </Button>
+                <Sparkles className="h-4 w-4 mr-2" />
+                <span>과제 생성</span>
+              </ActionButton>
             </CardContent>
           </Card>
         </div>

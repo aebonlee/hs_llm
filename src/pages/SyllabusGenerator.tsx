@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { ActionButton } from '@/components/ui/action-button';
 import { UnifiedButton as Button } from '@/components/ui/unified-button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -171,21 +172,17 @@ export function SyllabusGenerator() {
               />
             </div>
 
-            <Button 
+            <ActionButton 
               onClick={handleGenerate} 
-              disabled={isGenerating || !formData.courseName}
+              disabled={!formData.courseName}
+              loading={isGenerating}
               className="w-full"
-              variant="primary"
+              variant="generate"
+              size="md"
             >
-              {isGenerating ? (
-                <span>생성 중...</span>
-              ) : (
-                <>
-                  <Sparkles className="h-4 w-4 mr-2" />
-                  <span>강의계획서 생성</span>
-                </>
-              )}
-            </Button>
+              <Sparkles className="h-4 w-4 mr-2" />
+              <span>강의계획서 생성</span>
+            </ActionButton>
           </CardContent>
         </Card>
 
@@ -207,30 +204,30 @@ export function SyllabusGenerator() {
                 </div>
                 
                 <div className="flex space-x-2">
-                  <Button 
-                    variant="secondary" 
+                  <ActionButton 
+                    variant="export" 
                     size="sm"
                     onClick={() => handleExport('pdf')}
                   >
                     <Download className="h-4 w-4 mr-2" />
                     <span>PDF</span>
-                  </Button>
-                  <Button 
-                    variant="secondary" 
+                  </ActionButton>
+                  <ActionButton 
+                    variant="export" 
                     size="sm"
                     onClick={() => handleExport('markdown')}
                   >
                     <Download className="h-4 w-4 mr-2" />
                     <span>Markdown</span>
-                  </Button>
-                  <Button 
-                    variant="secondary" 
+                  </ActionButton>
+                  <ActionButton 
+                    variant="save" 
                     size="sm"
                     onClick={() => handleExport('json')}
                   >
                     <Save className="h-4 w-4 mr-2" />
                     <span>저장</span>
-                  </Button>
+                  </ActionButton>
                 </div>
               </div>
             ) : (
