@@ -39,7 +39,7 @@ export interface ThemedButtonProps
 }
 
 const ThemedButton = React.forwardRef<HTMLButtonElement, ThemedButtonProps>(
-  ({ className, variant, size, useThemeColor = true, style, ...props }, ref) => {
+  ({ className, variant, size, useThemeColor = true, style, children, ...props }, ref) => {
     const { getAccentColors } = useTheme();
     const colors = getAccentColors();
     
@@ -116,7 +116,9 @@ const ThemedButton = React.forwardRef<HTMLButtonElement, ThemedButtonProps>(
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         {...props}
-      />
+      >
+        {children}
+      </button>
     );
   }
 );
