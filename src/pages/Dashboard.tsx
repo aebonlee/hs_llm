@@ -10,35 +10,32 @@ import {
   Settings
 } from 'lucide-react';
 import { useAppStore } from '@/store';
+import { useTheme } from '@/contexts/ThemeContext';
 
 const quickActions = [
   {
     title: '강의계획서 생성',
     description: 'AI를 활용한 체계적인 강의계획서 작성',
     icon: BookOpen,
-    path: '/syllabus',
-    color: 'text-gray-600'
+    path: '/syllabus'
   },
   {
     title: '루브릭 빌더',
     description: '평가 기준표 생성 및 관리',
     icon: ClipboardList,
-    path: '/rubric',
-    color: 'text-gray-600'
+    path: '/rubric'
   },
   {
     title: '과제 생성',
     description: '학습 목표에 맞는 과제 설계',
     icon: FileText,
-    path: '/assignment',
-    color: 'text-gray-600'
+    path: '/assignment'
   },
   {
     title: '피드백 생성',
     description: '개인화된 학습 피드백 작성',
     icon: MessageCircle,
-    path: '/feedback',
-    color: 'text-gray-600'
+    path: '/feedback'
   }
 ];
 
@@ -46,6 +43,8 @@ const quickActions = [
 export function Dashboard() {
   const { apiKey } = useAppStore();
   const hasApiKey = apiKey && apiKey.trim().length > 0;
+  const { getAccentColors } = useTheme();
+  const colors = getAccentColors();
 
   return (
     <div className="space-y-10 animate-fadeIn">
@@ -120,7 +119,7 @@ export function Dashboard() {
                 <div className="option-card h-full p-6 group">
                   <div className="relative z-10">
                     <div className="flex items-center space-x-4 mb-4">
-                      <div className="p-3 rounded-xl shadow-lg group-hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-gray-700 to-gray-800">
+                      <div className={`p-3 rounded-xl shadow-lg group-hover:shadow-xl transition-all duration-300 bg-gradient-to-br ${colors.from} ${colors.to}`}>
                         <Icon className="h-6 w-6 text-white" />
                       </div>
                       <div>

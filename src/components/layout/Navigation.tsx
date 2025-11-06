@@ -11,6 +11,8 @@ import {
   Menu,
   X
 } from 'lucide-react';
+import { useTheme } from '@/contexts/ThemeContext';
+import { ThemeToggle } from '@/components/ThemeToggle';
 
 const navItems = [
   { path: '/', label: '대시보드', icon: Home },
@@ -24,6 +26,8 @@ const navItems = [
 export function Navigation() {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { getAccentColors } = useTheme();
+  const colors = getAccentColors();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -35,7 +39,7 @@ export function Navigation() {
         <div className="flex items-center justify-between h-20">
           <div className="flex items-center space-x-12">
             <Link to="/" className="flex items-center space-x-3 group">
-              <div className="p-2 bg-gradient-to-br from-gray-700 to-gray-800 rounded-xl shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
+              <div className={`p-2 bg-gradient-to-br ${colors.from} ${colors.to} rounded-xl shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105`}>
                 <Users className="h-7 w-7 text-white" />
               </div>
               <div>
@@ -66,13 +70,14 @@ export function Navigation() {
           </div>
           
           <div className="flex items-center space-x-4">
+            <ThemeToggle />
             <Link to="/guide" className="hidden md:block">
               <button className="btn-secondary text-sm">
                 도움말
               </button>
             </Link>
-            <div className="hidden md:flex items-center space-x-2 text-sm text-slate-600">
-              <div className="w-2 h-2 bg-gray-500 rounded-full animate-pulse"></div>
+            <div className="hidden md:flex items-center space-x-2 text-sm text-slate-600 dark:text-slate-400">
+              <div className={`w-2 h-2 ${colors.main} rounded-full animate-pulse`}></div>
               <span className="font-medium">AI 준비 완료</span>
             </div>
             
