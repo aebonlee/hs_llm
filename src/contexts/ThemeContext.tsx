@@ -137,7 +137,34 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<ThemeConfig>(() => {
     const savedTheme = localStorage.getItem('hs-llm-theme');
     if (savedTheme) {
-      return JSON.parse(savedTheme);
+      try {
+        const parsed = JSON.parse(savedTheme);
+        // Validate and migrate old theme colors
+        const validColors = ['color-1', 'color-2', 'color-3', 'color-4', 'color-5'];
+        if (validColors.includes(parsed.color)) {
+          return parsed;
+        } else {
+          // Migration from old theme system
+          const colorMap: { [key: string]: ThemeColor } = {
+            'ocean': 'color-4',
+            'forest': 'color-3',
+            'sunset': 'color-2',
+            'royal': 'color-5',
+            'minimal': 'color-1',
+            'vibrant': 'color-5',
+            'tech': 'color-1',
+            'warm': 'color-2',
+            'arctic': 'color-4'
+          };
+          return {
+            mode: parsed.mode || 'light',
+            color: colorMap[parsed.color] || 'color-1'
+          };
+        }
+      } catch {
+        // If parsing fails, return default
+        localStorage.removeItem('hs-llm-theme');
+      }
     }
     return { mode: 'light', color: 'color-1' };
   });
