@@ -6,12 +6,16 @@ import { Textarea } from '@/components/ui/textarea';
 import { PageTitle } from '@/components/ui/PageTitle';
 import { useAppStore } from '@/store';
 import { ExportService } from '@/services/export.service';
-import { Settings as SettingsIcon, Key, Download, Trash2, Save, Eye, EyeOff } from 'lucide-react';
+import { validateAPIKey, verifyAPIKeyWithOpenAI, sanitizeAPIKey, maskAPIKey } from '@/utils/api-validator';
+import { toast } from '@/hooks/useToast';
+import { Settings as SettingsIcon, Key, Download, Trash2, Save, Eye, EyeOff, CheckCircle, AlertCircle } from 'lucide-react';
 
 export function Settings() {
   const { apiKey, setApiKey, selectedModel, storageService } = useAppStore();
   const [showApiKey, setShowApiKey] = useState(false);
   const [tempApiKey, setTempApiKey] = useState('');
+  const [isValidating, setIsValidating] = useState(false);
+  const [validationStatus, setValidationStatus] = useState<'idle' | 'valid' | 'invalid'>('idle');
   const [model, setModel] = useState(selectedModel);
   const [settings, setSettings] = useState({
     maxTokens: 2000,
@@ -23,10 +27,37 @@ export function Settings() {
 
   useEffect(() => {
     setTempApiKey(apiKey);
+    if (apiKey) {
+      const validation = validateAPIKey(apiKey);
+      setValidationStatus(validation.isValid ? 'valid' : 'invalid');
+    }
   }, [apiKey]);
 
-  const handleSaveApiKey = () => {
-    setApiKey(tempApiKey);
+  const handleSaveApiKey = async () => {
+    const sanitized = sanitizeAPIKey(tempApiKey);
+    const validation = validateAPIKey(sanitized);
+    
+    if (!validation.isValid) {
+      toast.error(validation.error || 'API 키가 유효하지 않습니다.');
+      setValidationStatus('invalid');
+      return;
+    }
+    
+    if (validation.warning) {
+      toast.warning(validation.warning);
+    }
+    
+    setIsValidating(true);
+    const isValid = await verifyAPIKeyWithOpenAI(sanitized);
+    setIsValidating(false);
+    
+    if (isValid) {
+      setApiKey(sanitized);
+      setValidationStatus('valid');
+      toast.success('API 키가 저장되었습니다.');
+    } else {
+      setValidationStatus('invalid');
+    }
   };
 
   const handleExportData = () => {
@@ -69,7 +100,15 @@ export function Settings() {
           </CardHeader>
           <CardContent className="space-y-4">
             <div>
-              <label className="text-sm font-medium">OpenAI API Key</label>
+              <label className="text-sm font-medium flex items-center gap-2">
+                OpenAI API Key
+                {validationStatus === 'valid' && (
+                  <CheckCircle className="h-4 w-4 text-green-500" />
+                )}
+                {validationStatus === 'invalid' && (
+                  <AlertCircle className="h-4 w-4 text-red-500" />
+                )}
+              </label>
               <div className="flex space-x-2 mt-1">
                 <div className="relative flex-1">
                   <Input
@@ -77,6 +116,10 @@ export function Settings() {
                     value={tempApiKey}
                     onChange={(e) => setTempApiKey(e.target.value)}
                     placeholder="sk-..."
+                    className={
+                      validationStatus === 'invalid' ? 'border-red-500' : 
+                      validationStatus === 'valid' ? 'border-green-500' : ''
+                    }
                   />
                   <Button
                     variant="ghost"
@@ -87,13 +130,26 @@ export function Settings() {
                     {showApiKey ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                   </Button>
                 </div>
-                <Button onClick={handleSaveApiKey} size="sm">
-                  <Save className="h-4 w-4" />
+                <Button 
+                  onClick={handleSaveApiKey} 
+                  size="sm"
+                  disabled={isValidating}
+                >
+                  {isValidating ? (
+                    <div className="h-4 w-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                  ) : (
+                    <Save className="h-4 w-4" />
+                  )}
                 </Button>
               </div>
               <p className="text-xs text-muted-foreground mt-1">
                 API 키는 안전하게 암호화되어 로컬에 저장됩니다
               </p>
+              {apiKey && (
+                <p className="text-xs text-muted-foreground mt-1">
+                  현재 키: {maskAPIKey(apiKey)}
+                </p>
+              )}
             </div>
 
             <div>
