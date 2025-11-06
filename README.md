@@ -36,8 +36,115 @@
 
 OpenAI의 최신 GPT 모델을 활용하여 교수자들의 반복적이고 시간 소모적인 업무를 자동화하고, 교육의 질을 향상시키는 것을 목표로 합니다.
 
+### 🔄 시스템 아키텍처 파이프라인
+
+```mermaid
+graph LR
+    subgraph "사용자 인터페이스"
+        A[교수자/강사] --> B[Teaching AI 플랫폼]
+        B --> C{작업 선택}
+    end
+    
+    subgraph "AI 처리 엔진"
+        C -->|강의계획서| D[Syllabus Generator]
+        C -->|루브릭| E[Rubric Builder]
+        C -->|과제| F[Assignment Generator]
+        C -->|피드백| G[Feedback Generator]
+        
+        D --> H[프롬프트 엔지니어링]
+        E --> H
+        F --> H
+        G --> H
+    end
+    
+    subgraph "OpenAI API"
+        H --> I[GPT-4/3.5 모델]
+        I --> J[AI 응답 생성]
+    end
+    
+    subgraph "후처리 & 출력"
+        J --> K[결과 포맷팅]
+        K --> L{출력 형식}
+        L -->|PDF| M[PDF 문서]
+        L -->|Markdown| N[MD 파일]
+        L -->|JSON| O[구조화 데이터]
+    end
+    
+    style A fill:#e1f5fe
+    style B fill:#81c784
+    style I fill:#ffb74d
+    style M fill:#ce93d8
+    style N fill:#ce93d8
+    style O fill:#ce93d8
+```
+
+### 📊 데이터 처리 플로우
+
+```mermaid
+sequenceDiagram
+    participant User as 사용자
+    participant UI as React UI
+    participant Store as Zustand Store
+    participant Service as OpenAI Service
+    participant API as OpenAI API
+    participant Export as Export Service
+    
+    User->>UI: 콘텐츠 생성 요청
+    UI->>Store: 입력 데이터 저장
+    Store->>Service: 프롬프트 생성
+    Service->>API: API 호출 (암호화된 키)
+    API-->>Service: AI 응답
+    Service-->>Store: 결과 저장
+    Store-->>UI: UI 업데이트
+    UI-->>User: 결과 표시
+    User->>UI: 내보내기 요청
+    UI->>Export: 포맷 변환
+    Export-->>User: 파일 다운로드
+```
+
 ### 🎯 미션
 > "AI 기술을 통해 교육자들이 더 창의적이고 의미 있는 교육 활동에 집중할 수 있도록 지원합니다."
+
+### 🏗️ 기술 워크플로우
+
+<table>
+<tr>
+<td width="50%">
+
+#### 📥 입력 단계
+1. **사용자 입력** - 강의 정보, 학습목표 등
+2. **템플릿 선택** - 다양한 교육 템플릿
+3. **파라미터 설정** - 난이도, 톤, 스타일
+
+</td>
+<td width="50%">
+
+#### 🤖 AI 처리
+1. **프롬프트 최적화** - 컨텍스트 강화
+2. **모델 실행** - GPT-4/3.5 Turbo
+3. **응답 검증** - 품질 체크
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+#### 📤 출력 단계
+1. **포맷팅** - 구조화된 문서 생성
+2. **리뷰 & 수정** - 실시간 편집 가능
+3. **다운로드** - PDF/MD/JSON 형식
+
+</td>
+<td width="50%">
+
+#### 💾 데이터 관리
+1. **로컬 저장** - 브라우저 스토리지
+2. **암호화** - API 키 보안
+3. **버전 관리** - 히스토리 추적
+
+</td>
+</tr>
+</table>
 
 ### 📊 핵심 성과
 - **업무 시간 83% 단축** - 강의계획서 작성 3시간 → 30분
