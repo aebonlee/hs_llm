@@ -34,7 +34,7 @@ export function Navigation() {
   };
 
   return (
-    <nav className="bg-white dark:bg-slate-900 sticky top-0 z-50 border-b border-slate-200 dark:border-slate-700 shadow-sm">
+    <nav className="bg-white dark:bg-gray-900 sticky top-0 z-50 border-b border-slate-200 dark:border-gray-700 shadow-sm">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="flex items-center justify-between h-20">
           <div className="flex items-center space-x-12">

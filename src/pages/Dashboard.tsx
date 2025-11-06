@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import { useAppStore } from '@/store';
 import { useTheme } from '@/contexts/ThemeContext';
+import { ThemedButton } from '@/components/ui/themed-button';
 
 const quickActions = [
   {
@@ -74,10 +75,10 @@ export function Dashboard() {
               </p>
             </div>
             <Link to="/settings" className="flex-shrink-0">
-              <button className="bg-yellow-600 hover:bg-yellow-700 dark:bg-yellow-600 dark:hover:bg-yellow-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center space-x-2">
+              <ThemedButton size="sm" className="flex items-center space-x-2">
                 <Settings className="h-4 w-4" />
                 <span>API 키 설정</span>
-              </button>
+              </ThemedButton>
             </Link>
           </div>
         </div>
@@ -94,10 +95,10 @@ export function Dashboard() {
               </p>
             </div>
             <Link to="/settings" className="flex-shrink-0">
-              <button className="bg-green-600 hover:bg-green-700 dark:bg-green-600 dark:hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center space-x-2">
+              <ThemedButton size="sm" variant="outline" className="flex items-center space-x-2">
                 <Key className="h-4 w-4" />
                 <span>설정 관리</span>
-              </button>
+              </ThemedButton>
             </Link>
           </div>
         </div>
@@ -166,9 +167,9 @@ export function Dashboard() {
           </div>
           <div className="mt-6">
             <Link to="/settings" className="block">
-              <button className="w-full px-4 py-2 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 rounded-lg font-medium transition-colors">
+              <ThemedButton variant="outline" className="w-full">
                 설정 관리
-              </button>
+              </ThemedButton>
             </Link>
           </div>
         </div>
