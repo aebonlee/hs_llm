@@ -43,20 +43,20 @@
 .f_intel {font-family: 'intelone-mono-font-family-regular', sans-serif;}
 
 :root {
-  --bg-black-900: #f8f9fa;
-  --bg-black-100: #ffffff;
-  --bg-black-50: #e9ecef;
-  --text-black-900: #212529;
-  --text-black-700: #6c757d;
-  --skin-color: #6c757d;
+  --bg-black-900: #f2f2fc;
+  --bg-black-100: #fdf9ff;
+  --bg-black-50: #e8dfec;
+  --text-black-900: #302e4d;
+  --text-black-700: #504e70;
+  --skin-color: #ec1839;
 }
 
 body.dark {
-  --bg-black-900: #121212;
-  --bg-black-100: #1e1e1e;
-  --bg-black-50: #2d2d2d;
+  --bg-black-900: #151515;
+  --bg-black-100: #222222;
+  --bg-black-50: #393939;
   --text-black-900: #ffffff;
-  --text-black-700: #b3b3b3;
+  --text-black-700: #e9e9e9;
 }
 
 @layer base {
@@ -112,30 +112,30 @@ body.dark {
   }
 
   .dark {
-    /* Softer dark theme - more comfortable for eyes */
-    --background: 0 0% 15%; /* #262626 Softer dark background */
-    --foreground: 0 0% 95%; /* #f2f2f2 Slightly off-white text */
-    --card: 0 0% 20%; /* #333333 Lighter dark cards */
-    --card-foreground: 0 0% 95%; /* #f2f2f2 Slightly off-white text */
-    --card-hover: 0 0% 23%; /* #3a3a3a Hover state for cards */
-    --popover: 0 0% 20%; /* #333333 Lighter dark popover */
-    --popover-foreground: 0 0% 95%; /* #f2f2f2 Slightly off-white text */
-    --primary: 0 0% 25%; /* #404040 Softer primary */
-    --primary-hover: 0 0% 30%; /* #4d4d4d Hover state */
-    --primary-foreground: 0 0% 95%; /* #f2f2f2 Light text on primary */
-    --secondary: 0 0% 25%; /* #404040 Lighter secondary */
-    --secondary-foreground: 0 0% 90%; /* #e6e6e6 Light text */
-    --muted: 0 0% 30%; /* #4d4d4d Lighter muted */
-    --muted-foreground: 0 0% 65%; /* #a6a6a6 More readable muted text */
-    --accent: 0 0% 25%; /* #404040 Lighter accent */
-    --accent-foreground: 0 0% 95%; /* #f2f2f2 Light text on accent */
+    /* Dark theme from Web_skill */
+    --background: 0 0% 8%; /* #151515 Dark background */
+    --foreground: 0 0% 100%; /* #ffffff White text */
+    --card: 0 0% 13%; /* #222222 Dark cards */
+    --card-foreground: 0 0% 100%; /* #ffffff White text */
+    --card-hover: 0 0% 17%; /* #2b2b2b Hover state for cards */
+    --popover: 0 0% 13%; /* #222222 Dark popover */
+    --popover-foreground: 0 0% 100%; /* #ffffff White text */
+    --primary: 0 0% 22%; /* #393939 Primary */
+    --primary-hover: 0 0% 27%; /* #454545 Hover state */
+    --primary-foreground: 0 0% 100%; /* #ffffff Light text on primary */
+    --secondary: 0 0% 22%; /* #393939 Secondary */
+    --secondary-foreground: 0 0% 91%; /* #e9e9e9 Light text */
+    --muted: 0 0% 22%; /* #393939 Muted */
+    --muted-foreground: 0 0% 91%; /* #e9e9e9 Muted text */
+    --accent: 0 0% 22%; /* #393939 Accent */
+    --accent-foreground: 0 0% 100%; /* #ffffff Light text on accent */
     --success: 0 0% 50%; /* #808080 Better contrast */
     --warning: 0 0% 45%; /* #737373 Better contrast */
     --destructive: 0 0% 35%; /* #595959 Better contrast */
-    --destructive-foreground: 0 0% 95%; /* #f2f2f2 Light text */
-    --border: 0 0% 30%; /* #4d4d4d More visible borders */
-    --input: 0 0% 30%; /* #4d4d4d More visible input borders */
-    --ring: 0 0% 60%; /* #999999 More visible focus ring */
+    --destructive-foreground: 0 0% 100%; /* #ffffff Light text */
+    --border: 0 0% 22%; /* #393939 Borders */
+    --input: 0 0% 22%; /* #393939 Input borders */
+    --ring: 0 0% 60%; /* #999999 Focus ring */
   }
 }
 

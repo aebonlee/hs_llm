@@ -6,16 +6,12 @@ export function ThemeToggle() {
   const { theme, setThemeMode, setThemeColor } = useTheme();
   const [showColorPicker, setShowColorPicker] = useState(false);
 
-  const colors: { value: ThemeColor; label: string; class: string; description: string }[] = [
-    { value: 'ocean', label: 'Ocean', class: 'bg-blue-500', description: '신뢰감 있는 파란색' },
-    { value: 'forest', label: 'Forest', class: 'bg-green-500', description: '자연스러운 초록색' },
-    { value: 'sunset', label: 'Sunset', class: 'bg-orange-500', description: '활기찬 주황색' },
-    { value: 'royal', label: 'Royal', class: 'bg-purple-500', description: '고급스러운 보라색' },
-    { value: 'minimal', label: 'Minimal', class: 'bg-gray-500', description: '미니멀 플랫' },
-    { value: 'vibrant', label: 'Vibrant', class: 'bg-pink-500', description: '트렌디한 핑크' },
-    { value: 'tech', label: 'Tech', class: 'bg-gray-700', description: '테크 모노' },
-    { value: 'warm', label: 'Warm', class: 'bg-amber-700', description: '따뜻한 브라운' },
-    { value: 'arctic', label: 'Arctic', class: 'bg-gray-200', description: '깔끔한 화이트' }
+  const colors: { value: ThemeColor; label: string; class: string; hex: string }[] = [
+    { value: 'color-1', label: 'Color 1', class: 'bg-[#ec1839]', hex: '#ec1839' },
+    { value: 'color-2', label: 'Color 2', class: 'bg-[#fa5b0f]', hex: '#fa5b0f' },
+    { value: 'color-3', label: 'Color 3', class: 'bg-[#37b182]', hex: '#37b182' },
+    { value: 'color-4', label: 'Color 4', class: 'bg-[#1854b4]', hex: '#1854b4' },
+    { value: 'color-5', label: 'Color 5', class: 'bg-[#f021b2]', hex: '#f021b2' }
   ];
 
   return (
@@ -52,9 +48,8 @@ export function ThemeToggle() {
             />
             
             {/* Color Picker Dropdown */}
-            <div className="absolute right-0 mt-2 p-4 bg-white dark:bg-slate-800 rounded-lg shadow-xl border border-slate-200 dark:border-slate-700 z-20 w-80">
-              <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">테마 색상 선택</p>
-              <div className="grid grid-cols-3 gap-2">
+            <div className="absolute right-0 mt-2 p-3 bg-white dark:bg-slate-800 rounded-lg shadow-xl border border-slate-200 dark:border-slate-700 z-20">
+              <div className="flex gap-2">
                 {colors.map((color) => (
                   <button
                     key={color.value}
@@ -62,17 +57,14 @@ export function ThemeToggle() {
                       setThemeColor(color.value);
                       setShowColorPicker(false);
                     }}
-                    className={`p-2 rounded-lg border transition-all hover:scale-105 ${
+                    className={`w-10 h-10 rounded-full transition-all hover:scale-110 ${color.class} ${
                       theme.color === color.value 
-                        ? 'ring-2 ring-offset-2 ring-slate-400 border-slate-400' 
-                        : 'border-slate-200 dark:border-slate-600 hover:border-slate-300'
+                        ? 'ring-2 ring-offset-2 ring-slate-400' 
+                        : ''
                     }`}
                     aria-label={color.label}
-                  >
-                    <div className={`w-full h-8 rounded ${color.class} mb-1`} />
-                    <p className="text-xs font-medium text-slate-700 dark:text-slate-300">{color.label}</p>
-                    <p className="text-xs text-slate-500 dark:text-slate-400">{color.description}</p>
-                  </button>
+                    title={color.hex}
+                  />
                 ))}
               </div>
             </div>

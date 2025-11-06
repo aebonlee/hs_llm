@@ -59,10 +59,30 @@ export function Navigation() {
                 
                 return (
                   <Link key={item.path} to={item.path}>
-                    <div className={`px-3 py-2 rounded-lg flex items-center space-x-2 text-sm font-medium transition-colors
-                      ${isActive 
-                        ? 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white' 
-                        : 'text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white'}`}>
+                    <div 
+                      className={`px-3 py-2 rounded-lg flex items-center space-x-2 text-sm font-medium transition-all duration-200
+                        ${isActive 
+                          ? `${colors.main} text-white` 
+                          : 'text-slate-600 dark:text-slate-300'}`}
+                      style={!isActive ? {
+                        ':hover': {
+                          backgroundColor: `rgba(${colors.rgb}, 0.1)`,
+                          color: `rgb(${colors.rgb})`
+                        }
+                      } as React.CSSProperties : {}}
+                      onMouseEnter={(e) => {
+                        if (!isActive) {
+                          e.currentTarget.style.backgroundColor = `rgba(${colors.rgb}, 0.1)`;
+                          e.currentTarget.style.color = `rgb(${colors.rgb})`;
+                        }
+                      }}
+                      onMouseLeave={(e) => {
+                        if (!isActive) {
+                          e.currentTarget.style.backgroundColor = '';
+                          e.currentTarget.style.color = '';
+                        }
+                      }}
+                    >
                       <Icon className="h-4 w-4" />
                       <span>{item.label}</span>
                     </div>
@@ -75,7 +95,17 @@ export function Navigation() {
           <div className="flex items-center space-x-4">
             <ThemeToggle />
             <Link to="/guide" className="hidden md:block">
-              <button className="btn-secondary text-sm">
+              <button 
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 border ${colors.border} ${colors.text} ${colors.hover} hover:text-white`}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = `rgb(${colors.rgb})`;
+                  e.currentTarget.style.color = 'white';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = '';
+                  e.currentTarget.style.color = `rgb(${colors.rgb})`;
+                }}
+              >
                 도움말
               </button>
             </Link>
@@ -112,11 +142,23 @@ export function Navigation() {
                     key={item.path}
                     to={item.path}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className={`${
+                    className={`group flex items-center px-3 py-2 text-base font-medium rounded-lg transition-all duration-200 ${
                       isActive
-                        ? 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white'
-                        : 'text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white'
-                    } group flex items-center px-3 py-2 text-base font-medium rounded-lg transition-colors duration-200`}
+                        ? `${colors.main} text-white`
+                        : 'text-slate-700 dark:text-slate-300'
+                    }`}
+                    onMouseEnter={(e) => {
+                      if (!isActive) {
+                        e.currentTarget.style.backgroundColor = `rgba(${colors.rgb}, 0.1)`;
+                        e.currentTarget.style.color = `rgb(${colors.rgb})`;
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (!isActive) {
+                        e.currentTarget.style.backgroundColor = '';
+                        e.currentTarget.style.color = '';
+                      }
+                    }}
                   >
                     <Icon className="mr-3 h-5 w-5" />
                     {item.label}
