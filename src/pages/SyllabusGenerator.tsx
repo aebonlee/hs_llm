@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { ActionButton } from '@/components/ui/action-button';
-import { UnifiedButton as Button } from '@/components/ui/unified-button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { PageTitle } from '@/components/ui/PageTitle';

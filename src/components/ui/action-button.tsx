@@ -25,11 +25,11 @@ export const ActionButton = React.forwardRef<HTMLButtonElement, ActionButtonProp
     ...props 
   }, ref) => {
     const { getAccentColors, theme } = useTheme();
-    const colors = getAccentColors();
+    const themeColors = getAccentColors();
     const isDark = theme.mode === 'dark';
     
     // 기본 색상 RGB 값
-    const colorRgb = colors?.rgb || '59, 130, 246';
+    const colorRgb = themeColors?.rgb || '59, 130, 246';
     
     // 크기별 클래스
     const sizeClasses = {
@@ -84,7 +84,7 @@ export const ActionButton = React.forwardRef<HTMLButtonElement, ActionButtonProp
       }
     };
 
-    const colors = getVariantColor();
+    const variantColors = getVariantColor();
     const isDisabled = disabled || loading;
 
     // 버튼 클릭 핸들러
@@ -130,18 +130,18 @@ export const ActionButton = React.forwardRef<HTMLButtonElement, ActionButtonProp
           className
         )}
         style={{
-          backgroundColor: colors.bg,
-          color: colors.text,
-          borderColor: colors.border
+          backgroundColor: variantColors.bg,
+          color: variantColors.text,
+          borderColor: variantColors.border
         }}
         onMouseEnter={(e) => {
           if (!isDisabled) {
-            e.currentTarget.style.backgroundColor = colors.hoverBg;
+            e.currentTarget.style.backgroundColor = variantColors.hoverBg;
           }
         }}
         onMouseLeave={(e) => {
           if (!isDisabled) {
-            e.currentTarget.style.backgroundColor = colors.bg;
+            e.currentTarget.style.backgroundColor = variantColors.bg;
           }
         }}
         {...props}
