@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { ThemedButton as Button } from '@/components/ui/themed-button';
+import { SimpleButton as Button } from '@/components/ui/simple-button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { PageTitle } from '@/components/ui/PageTitle';
@@ -143,11 +143,14 @@ export function RubricBuilder() {
                 disabled={isGenerating || !aiPrompt}
                 className="w-full mt-2"
                 size="sm"
+                variant="primary"
               >
-                {isGenerating ? '생성 중...' : (
+                {isGenerating ? (
+                  <span>생성 중...</span>
+                ) : (
                   <>
                     <Sparkles className="h-4 w-4 mr-2" />
-                    AI로 생성
+                    <span>AI로 생성</span>
                   </>
                 )}
               </Button>

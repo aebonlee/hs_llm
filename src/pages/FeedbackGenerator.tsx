@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { ThemedButton as Button } from '@/components/ui/themed-button';
+import { SimpleButton as Button } from '@/components/ui/simple-button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { PageTitle } from '@/components/ui/PageTitle';
@@ -150,7 +150,7 @@ export function FeedbackGenerator() {
                     return (
                       <Button
                         key={option.value}
-                        variant={formData.tone === option.value ? "default" : "outline"}
+                        variant={formData.tone === option.value ? "primary" : "outline"}
                         size="sm"
                         onClick={() => handleInputChange('tone', option.value)}
                         className={`${option.color} flex items-center space-x-1`}
@@ -210,13 +210,14 @@ export function FeedbackGenerator() {
                 onClick={handleGenerate} 
                 disabled={isGenerating || !formData.studentName || !formData.assignmentTitle}
                 className="w-full"
+                variant="primary"
               >
                 {isGenerating ? (
-                  <>생성 중...</>
+                  <span>생성 중...</span>
                 ) : (
                   <>
                     <Sparkles className="h-4 w-4 mr-2" />
-                    피드백 생성
+                    <span>피드백 생성</span>
                   </>
                 )}
               </Button>

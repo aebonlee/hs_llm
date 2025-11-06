@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { ThemedButton as Button } from '@/components/ui/themed-button';
+import { SimpleButton as Button } from '@/components/ui/simple-button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { PageTitle } from '@/components/ui/PageTitle';
@@ -171,13 +171,14 @@ export function SyllabusGenerator() {
               onClick={handleGenerate} 
               disabled={isGenerating || !formData.courseName}
               className="w-full"
+              variant="primary"
             >
               {isGenerating ? (
-                <>생성 중...</>
+                <span>생성 중...</span>
               ) : (
                 <>
                   <Sparkles className="h-4 w-4 mr-2" />
-                  강의계획서 생성
+                  <span>강의계획서 생성</span>
                 </>
               )}
             </Button>
