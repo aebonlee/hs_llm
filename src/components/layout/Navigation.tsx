@@ -9,8 +9,7 @@ import {
   Settings,
   Home,
   Menu,
-  X,
-  HelpCircle
+  X
 } from 'lucide-react';
 
 const navItems = [
@@ -19,7 +18,6 @@ const navItems = [
   { path: '/rubric', label: '루브릭', icon: ClipboardList },
   { path: '/assignment', label: '과제', icon: FileText },
   { path: '/feedback', label: '피드백', icon: MessageCircle },
-  { path: '/guide', label: '사용가이드', icon: HelpCircle },
   { path: '/settings', label: '설정', icon: Settings },
 ];
 
