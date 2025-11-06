@@ -69,6 +69,8 @@ export function RubricBuilder() {
   };
 
   const handleGenerateWithAI = async () => {
+    console.log('AI로 생성 버튼 클릭!', { rubricTitle, rubricDescription, aiPrompt });
+    
     try {
       const { apiKey } = useAppStore.getState();
       if (!apiKey || apiKey.trim() === '') {

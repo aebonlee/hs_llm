@@ -28,6 +28,10 @@ export function FeedbackGenerator() {
   };
 
   const handleGenerate = async () => {
+    console.log('피드백 생성 버튼 클릭!', formData);
+    console.log('studentName:', formData.studentName);
+    console.log('assignmentTitle:', formData.assignmentTitle);
+    
     try {
       const { apiKey } = useAppStore.getState();
       if (!apiKey || apiKey.trim() === '') {

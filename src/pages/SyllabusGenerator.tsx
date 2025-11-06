@@ -29,6 +29,10 @@ export function SyllabusGenerator() {
   };
 
   const handleGenerate = async () => {
+    console.log('버튼 클릭됨!', formData);
+    console.log('isGenerating:', isGenerating);
+    console.log('courseName:', formData.courseName);
+    
     try {
       const { apiKey } = useAppStore.getState();
       if (!apiKey || apiKey.trim() === '') {
@@ -172,6 +176,7 @@ export function SyllabusGenerator() {
               disabled={isGenerating || !formData.courseName}
               className="w-full"
               variant="primary"
+              type="button"
             >
               {isGenerating ? (
                 <span>생성 중...</span>

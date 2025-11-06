@@ -29,6 +29,9 @@ export function AssignmentGenerator() {
   };
 
   const handleGenerate = async () => {
+    console.log('과제 생성 버튼 클릭!', formData);
+    console.log('title:', formData.title);
+    
     try {
       const { apiKey } = useAppStore.getState();
       if (!apiKey || apiKey.trim() === '') {
