@@ -70,6 +70,11 @@ export function RubricBuilder() {
 
   const handleGenerateWithAI = async () => {
     try {
+      const { apiKey } = useAppStore.getState();
+      if (!apiKey || apiKey.trim() === '') {
+        alert('API 키가 설정되지 않았습니다. 설정 페이지에서 OpenAI API 키를 입력해주세요.');
+        return;
+      }
       await generateContent('rubric', {
         title: rubricTitle,
         description: rubricDescription,
@@ -77,6 +82,7 @@ export function RubricBuilder() {
       });
     } catch (error) {
       console.error('루브릭 생성 실패:', error);
+      alert('루브릭 생성 중 오류가 발생했습니다. API 키를 확인하거나 다시 시도해주세요.');
     }
   };
 

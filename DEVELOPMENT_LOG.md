@@ -252,6 +252,85 @@
 
 ---
 
-**개발 완료일**: 2024년 10월 31일  
-**개발자**: Claude Sonnet (AI Assistant)  
+---
+
+## 추가 개발 내용 (2025-11-06)
+
+### 🎨 Web_skill 컬러 시스템 적용
+
+#### 1. 5가지 테마 컬러 도입
+- **Color-1 (Red/Pink)**: #ec1839 - 열정적이고 역동적
+- **Color-2 (Orange)**: #fa5b0f - 활기차고 친근한
+- **Color-3 (Green)**: #37b182 - 자연스럽고 편안한
+- **Color-4 (Blue)**: #1854b4 - 신뢰와 전문성
+- **Color-5 (Magenta)**: #f021b2 - 창의적이고 현대적
+
+#### 2. 개선된 다크 모드 구현
+- **문제**: 초기 다크 모드가 너무 어둡고 텍스트 가독성 문제
+- **해결**: 
+  - 배경색 #171717로 조정 (순수 검정 대신)
+  - 텍스트 색상 #f2f2f2로 개선
+  - WCAG 2.1 접근성 기준 충족 (4.5:1 대비)
+
+#### 3. ThemeContext 시스템 구축
+```typescript
+// 테마 관리 시스템
+- localStorage 저장 및 불러오기
+- 기존 테마 데이터 마이그레이션
+- 동적 색상 적용 (RGB 값 활용)
+```
+
+#### 4. ThemedButton 컴포넌트 개발
+- 테마 색상 자동 적용
+- 호버 효과 (scale & color transition)
+- 다크 모드 지원
+
+### 🐛 버그 수정
+
+#### 1. API 키 오류 처리
+- **문제**: 모든 생성 버튼에서 API 키 없을 시 오류 발생
+- **해결**: 각 페이지에 API 키 확인 로직 추가
+  - SyllabusGenerator.tsx
+  - RubricBuilder.tsx
+  - AssignmentGenerator.tsx
+  - FeedbackGenerator.tsx
+
+#### 2. ErrorBoundary 충돌 해결
+- **문제**: 기존 테마 데이터와 호환성 문제로 앱 크래시
+- **해결**: ThemeContext에 마이그레이션 로직 추가
+```typescript
+const colorMap = {
+  'ocean': 'color-4',
+  'tech': 'color-1',
+  // ... 기존 테마 매핑
+};
+```
+
+### 📚 문서화
+
+#### Dev_md/color 폴더 생성
+1. **01_web_skill_color_system.md**
+   - 완전한 컬러 팔레트 문서
+   - CSS 변수 정의
+   - React 구현 예제
+
+2. **02_dark_mode_implementation.md**
+   - 다크 모드 구현 가이드
+   - 접근성 체크리스트
+   - 최적화 팁
+
+3. **03_prompt_template.md**
+   - 재사용 가능한 프롬프트 템플릿
+   - 빠른 적용 가이드
+   - 문제 해결 프롬프트
+
+### 🚀 성능 개선
+- 색상 전환 애니메이션 200ms transition
+- 동적 RGB 값 활용으로 투명도 제어 가능
+- localStorage 마이그레이션으로 기존 사용자 설정 보존
+
+---
+
+**최종 업데이트**: 2025년 11월 6일  
+**개발자**: Claude Opus (AI Assistant)  
 **프로젝트 소유자**: aebonlee

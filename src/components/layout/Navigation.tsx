@@ -111,7 +111,7 @@ export function Navigation() {
             </Link>
             <div className="hidden md:flex items-center space-x-2 text-sm text-slate-600 dark:text-slate-400">
               <div className={`w-2 h-2 ${colors.main} rounded-full animate-pulse`}></div>
-              <span className="font-medium">AI 준비 완료</span>
+              <span className="font-medium">AI 시스템 정상</span>
             </div>
             
             {/* Mobile menu button */}
@@ -176,7 +176,7 @@ export function Navigation() {
                 </Link>
                 <div className="flex items-center px-3 py-2 text-sm text-slate-600 dark:text-slate-400">
                   <div className={`w-2 h-2 ${colors.main} rounded-full animate-pulse mr-2`}></div>
-                  <span className="font-medium">AI 준비 완료</span>
+                  <span className="font-medium">AI 시스템 정상</span>
                 </div>
               </div>
             </div>
