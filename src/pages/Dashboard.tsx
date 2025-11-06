@@ -11,7 +11,7 @@ import {
 } from 'lucide-react';
 import { useAppStore } from '@/store';
 import { useTheme } from '@/contexts/ThemeContext';
-import { ThemedButton } from '@/components/ui/themed-button';
+import { UnifiedButton } from '@/components/ui/unified-button';
 
 const quickActions = [
   {
@@ -75,10 +75,10 @@ export function Dashboard() {
               </p>
             </div>
             <Link to="/settings" className="flex-shrink-0">
-              <ThemedButton size="sm" className="flex items-center space-x-2">
+              <UnifiedButton size="sm" className="flex items-center space-x-2">
                 <Settings className="h-4 w-4" />
                 <span>API 키 설정</span>
-              </ThemedButton>
+              </UnifiedButton>
             </Link>
           </div>
         </div>
@@ -95,10 +95,10 @@ export function Dashboard() {
               </p>
             </div>
             <Link to="/settings" className="flex-shrink-0">
-              <ThemedButton size="sm" variant="outline" className="flex items-center space-x-2">
+              <UnifiedButton size="sm" variant="outline" className="flex items-center space-x-2">
                 <Key className="h-4 w-4" />
                 <span>설정 관리</span>
-              </ThemedButton>
+              </UnifiedButton>
             </Link>
           </div>
         </div>
@@ -167,9 +167,9 @@ export function Dashboard() {
           </div>
           <div className="mt-6">
             <Link to="/settings" className="block">
-              <ThemedButton variant="outline" className="w-full">
+              <UnifiedButton variant="outline" className="w-full">
                 설정 관리
-              </ThemedButton>
+              </UnifiedButton>
             </Link>
           </div>
         </div>
