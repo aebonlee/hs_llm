@@ -50,12 +50,12 @@ export function SyllabusGenerator() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Input Form */}
-        <div className="modern-card">
-          <div className="p-6 border-b border-slate-100">
-            <h2 className="text-xl font-semibold text-slate-900">강의 정보 입력</h2>
-            <p className="text-slate-600 mt-1">강의계획서 생성에 필요한 기본 정보를 입력하세요</p>
-          </div>
-          <div className="p-6 space-y-6">
+        <Card>
+          <CardHeader>
+            <CardTitle>강의 정보 입력</CardTitle>
+            <CardDescription>강의계획서 생성에 필요한 기본 정보를 입력하세요</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-6">
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <label className="text-sm font-medium">강의명</label>
@@ -175,8 +175,8 @@ export function SyllabusGenerator() {
                 </>
               )}
             </Button>
-          </div>
-        </div>
+          </CardContent>
+        </Card>
 
         {/* Generated Content */}
         <Card>
