@@ -38,7 +38,7 @@ export function Navigation() {
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="flex items-center justify-between h-20">
           <div className="flex items-center space-x-12">
-            <Link to="/" className="flex items-center space-x-3 group">
+            <Link to="/" className="flex items-center space-x-3 group focus:outline-none">
               <div className={`p-2 bg-gradient-to-br ${colors.from} ${colors.to} rounded-xl shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105`}>
                 <Users className="h-7 w-7 text-white" />
               </div>
@@ -58,9 +58,9 @@ export function Navigation() {
                 const isActive = location.pathname === item.path;
                 
                 return (
-                  <Link key={item.path} to={item.path}>
+                  <Link key={item.path} to={item.path} className="focus:outline-none">
                     <div 
-                      className={`px-3 py-2 rounded-lg flex items-center space-x-2 text-sm font-medium transition-all duration-200
+                      className={`px-3 py-2 rounded-lg flex items-center space-x-2 text-sm font-medium transition-all duration-200 focus:outline-none
                         ${isActive 
                           ? `${colors.main} text-white` 
                           : 'text-slate-600 dark:text-slate-300'}`}
@@ -94,9 +94,9 @@ export function Navigation() {
           
           <div className="flex items-center space-x-4">
             <ThemeToggle />
-            <Link to="/guide" className="hidden md:block">
+            <Link to="/guide" className="hidden md:block focus:outline-none">
               <button 
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 border ${colors.border} ${colors.text} ${colors.hover} hover:text-white`}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 border focus:outline-none ${colors.border} ${colors.text} ${colors.hover} hover:text-white`}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.backgroundColor = `rgb(${colors.rgb})`;
                   e.currentTarget.style.color = 'white';
@@ -117,7 +117,7 @@ export function Navigation() {
             {/* Mobile menu button */}
             <button
               onClick={toggleMobileMenu}
-              className="lg:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200"
+              className="lg:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200 focus:outline-none"
               aria-label="메뉴 열기"
             >
               {isMobileMenuOpen ? (
@@ -142,7 +142,7 @@ export function Navigation() {
                     key={item.path}
                     to={item.path}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className={`group flex items-center px-3 py-2 text-base font-medium rounded-lg transition-all duration-200 ${
+                    className={`group flex items-center px-3 py-2 text-base font-medium rounded-lg transition-all duration-200 focus:outline-none ${
                       isActive
                         ? `${colors.main} text-white`
                         : 'text-slate-700 dark:text-slate-300'

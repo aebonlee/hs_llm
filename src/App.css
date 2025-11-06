@@ -510,11 +510,23 @@ a:hover, a:active {
   text-decoration: none;
 }
 
-/* Clean focus states */
-*:focus, *:focus-visible {
-  outline: 2px solid hsl(var(--ring));
-  outline-offset: 2px;
-  box-shadow: 0 0 0 3px hsl(var(--ring) / 0.3);
+/* Remove focus outlines for cleaner UI */
+*:focus {
+  outline: none !important;
+}
+
+*:focus-visible {
+  outline: none !important;
+}
+
+/* Remove focus outline from navigation links specifically */
+nav a:focus,
+nav a:focus-visible,
+nav button:focus,
+nav button:focus-visible,
+.focus\:outline-none:focus {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 
