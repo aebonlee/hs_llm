@@ -9,7 +9,8 @@ import {
   Settings,
   Home,
   Menu,
-  X
+  X,
+  HelpCircle
 } from 'lucide-react';
 
 const navItems = [
@@ -18,6 +19,7 @@ const navItems = [
   { path: '/rubric', label: '루브릭', icon: ClipboardList },
   { path: '/assignment', label: '과제', icon: FileText },
   { path: '/feedback', label: '피드백', icon: MessageCircle },
+  { path: '/guide', label: '사용가이드', icon: HelpCircle },
   { path: '/settings', label: '설정', icon: Settings },
 ];
 
@@ -66,9 +68,11 @@ export function Navigation() {
           </div>
           
           <div className="flex items-center space-x-4">
-            <button className="btn-secondary text-sm hidden md:block">
-              도움말
-            </button>
+            <Link to="/guide" className="hidden md:block">
+              <button className="btn-secondary text-sm">
+                도움말
+              </button>
+            </Link>
             <div className="hidden md:flex items-center space-x-2 text-sm text-slate-600">
               <div className="w-2 h-2 bg-gray-500 rounded-full animate-pulse"></div>
               <span className="font-medium">AI 준비 완료</span>
@@ -115,9 +119,13 @@ export function Navigation() {
               })}
               
               <div className="border-t border-slate-200 pt-3 mt-3">
-                <button className="w-full text-left px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 rounded-lg transition-colors duration-200">
+                <Link 
+                  to="/guide"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="block w-full text-left px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 rounded-lg transition-colors duration-200"
+                >
                   도움말
-                </button>
+                </Link>
                 <div className="flex items-center px-3 py-2 text-sm text-slate-600">
                   <div className="w-2 h-2 bg-gray-500 rounded-full animate-pulse mr-2"></div>
                   <span className="font-medium">AI 준비 완료</span>

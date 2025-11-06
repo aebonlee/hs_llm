@@ -12,6 +12,7 @@ const SyllabusGenerator = lazy(() => import('@/pages/SyllabusGenerator').then(mo
 const RubricBuilder = lazy(() => import('@/pages/RubricBuilder').then(module => ({ default: module.RubricBuilder })));
 const AssignmentGenerator = lazy(() => import('@/pages/AssignmentGenerator').then(module => ({ default: module.AssignmentGenerator })));
 const FeedbackGenerator = lazy(() => import('@/pages/FeedbackGenerator').then(module => ({ default: module.FeedbackGenerator })));
+const UserGuide = lazy(() => import('@/pages/UserGuide').then(module => ({ default: module.UserGuide })));
 const Settings = lazy(() => import('@/pages/Settings').then(module => ({ default: module.Settings })));
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
                     <Route path="/rubric" element={<RubricBuilder />} />
                     <Route path="/assignment" element={<AssignmentGenerator />} />
                     <Route path="/feedback" element={<FeedbackGenerator />} />
+                    <Route path="/guide" element={<UserGuide />} />
                     <Route path="/settings" element={<Settings />} />
                   </Routes>
                 </Suspense>
