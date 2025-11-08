@@ -11,7 +11,7 @@
 <div align="center">
   <img src="./han2.png" alt="Teaching AI Logo" width="200"/>
   
-  **🎓 한신대학교 교수혁신연구 | 🚀 2025년 12월 출시 예정 | 🌟 오픈소스 프로젝트**
+  **🎓 한신대학교 교수혁신연구 | 🚀 2025년 12월 연구 결과 발표 이후 서비스 예정 | 🌟 오픈소스 프로젝트**
 </div>
 
 ---
@@ -484,9 +484,9 @@ copies of the Software...
 - 🎥 YouTube: [Tutorial Videos](https://youtube.com/@teachingai)
 
 ### 연구 협력
-- 🏫 한신대학교 교수혁신연구팀
-- 📮 주소: 경기도 오산시 한신대길 137
-- ☎️ 전화: 031-379-0000
+- 🏫 한신대학교 교수혁신연구  
+- 📮 주소: 경기도 오산시 한신대길 137 
+- ☎️ 전화: 010-3700-0629 이애본(AI.SW대학 겸임교수)
 
 ### 소셜 미디어
 - Twitter: [@TeachingAI_KR](https://twitter.com/teachingai_kr)
@@ -560,7 +560,7 @@ Teaching AI 플랫폼은 완전 무료입니다. 단, OpenAI API 사용료는 �
 
 ---
 
-**© 2025 한신대학교 교수혁신연구팀. All rights reserved.**
+**© 2025 한신대학교. All rights reserved.**
 
 *최종 업데이트: 2025년 11월 6일*
 
