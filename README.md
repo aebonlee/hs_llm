@@ -414,7 +414,9 @@ hs_llm/
 
 ## 🤝 기여하기
 
-Teaching AI는 오픈소스 프로젝트입니다. 여러분의 기여를 환영합니다!
+Teaching AI는 오픈소스 프로젝트입니다. 
+
+여러분의 기여를 환영합니다!
 
 ### 기여 방법
 1. 🍴 Fork the repository
@@ -443,7 +445,7 @@ Teaching AI는 오픈소스 프로젝트입니다. 여러분의 기여를 환영
 ```
 MIT License
 
-Copyright (c) 2025 한신대학교 교수혁신연구팀
+Copyright (c) 2025 한신대학교 교수혁신연구팀 담당 이애본 겸임교수
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
